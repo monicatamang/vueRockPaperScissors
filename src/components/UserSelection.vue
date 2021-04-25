@@ -2,7 +2,8 @@
     <div>
         <h1>You</h1>
         <div>
-            <img :src="userImage.link" :alt="userImage.alt">
+            <!-- <img :src="userImage.src" :alt="userImage.alt"> -->
+            <img :src="userImage.src">
         </div>
     </div>
 </template>

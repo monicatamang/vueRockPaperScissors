@@ -14,11 +14,11 @@ export default new Vuex.Store({
       "Scissors"
     ],
     userSelectionImage: {
-      link: "",
-      alt: ""
+      src: "",
+      alt: undefined
     },
     computerSelectionImage: {
-      link: "",
+      src: "",
       alt: ""
     },
   },
@@ -37,21 +37,22 @@ export default new Vuex.Store({
     },
 
     updateUserImageLink: function(state, data) {
-      state.userSelectionImage.link = data;
+      state.userSelectionImage.src = data;
     },
 
     updateUserImageAlt: function(state, data) {
-      state.userSelectionAlt.link = data;
+      state.userSelectionImage.alt = data;
     },
 
-    updateComputerImageLink: function(state, data) {
-      state.computerSelectionImage.link = data;
-    },
+    // updateComputerImageLink: function(state, data) {
+    //   state.computerSelectionImage.link = data;
+    // },
 
-    updateComputerImageAlt: function(state, data) {
-      state.computerSelectionImage.alt = data;
-    }
+    // updateComputerImageAlt: function(state, data) {
+    //   state.computerSelectionImage.src = data;
+    // }
   },
+
   actions: {
   },
   getters: {
