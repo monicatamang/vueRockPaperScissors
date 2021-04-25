@@ -1,6 +1,5 @@
 <template>
     <div>
-        <h1>You</h1>
         <div>
             <!-- Setting the image source and description to the values obtained from the store and displaying the user's option image to the game page -->
             <img :src="userOptionImage.src" :alt="userOptionImage.alt">

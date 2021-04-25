@@ -11,5 +11,7 @@
 </script>
 
 <style scoped>
-
+    footer {
+        min-height: 5vh;
+    }
 </style>
