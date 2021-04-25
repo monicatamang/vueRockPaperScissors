@@ -2,8 +2,7 @@
     <div>
         <h1>You</h1>
         <div>
-            <!-- <img :src="userImage.src" :alt="userImage.alt"> -->
-            <img :src="userImage.src">
+            <img :src="userOptionImage.src" :alt="userOptionImage.alt">
         </div>
     </div>
 </template>
@@ -12,7 +11,7 @@
     export default {
         name: "user-selection",
         computed: {
-            userImage: function() {
+            userOptionImage: function() {
                 return this.$store.state.userSelectionImage;
             }
         },

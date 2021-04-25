@@ -11,13 +11,12 @@
                 <div id="gameArea">
                     <div>
                         <user-selection></user-selection>
-                        <button @click="userTurn(`Rock`)">{{ userOptions[0] }}</button>
-                        <button @click="userTurn(`Paper`)">{{ userOptions[1] }}</button>
-                        <button @click="userTurn(`Scissors`)">{{ userOptions[2] }}</button>
+                        <button @click="userTurn(`Rock`)">Rock</button>
+                        <button @click="userTurn(`Paper`)">Paper</button>
+                        <button @click="userTurn(`Scissors`)">Scissors</button>
                     </div>
                     <computer-selection></computer-selection>
                 </div>
-                <!-- Inject Computer Selection here -->
             </div>
         </article>
         <page-footer></page-footer>
@@ -41,10 +40,7 @@
         },
         data() {
             return {
-                RPSLoginToken: cookies.get(`RPSLoginToken`),
-                rockAlt: "A clipart of a fist positioned to the left representing the symbol of a rock in the game 'rock, paper, scissors' that is styled with a white circular, black-bordered background.",
-                paperAlt: "A clipart of a open hand positioned to the left representing the symbol of a rock in the game 'rock, paper, scissors' that is styled with a white circular, black-bordered background.",
-                scissorsAlt: "A clipart of a hand creating the shape of a pair of scissors positioned to the left representing the symbol of a rock in the game 'rock, paper, scissors' that is styled  with a white circular, black-bordered background."
+                RPSLoginToken: cookies.get(`RPSLoginToken`)
             }
         },
         methods: {
@@ -54,21 +50,79 @@
 
             userTurn: function(selection) {
                 if (selection === "Rock") {
-                    this.$store.commit("updateUserImageLink", "https://www.kindpng.com/picc/m/266-2667213_transparent-rock-paper-scissors-clipart-clipart-rock-paper.png");
-                    this.$store.commit("updateUserImageAlt", this.rockAlt);
+                    this.$store.commit("updateUserImageLink", this.imagesOfOptions[0].rockSrc);
+                    this.$store.commit("updateUserImageAlt", this.imagesOfOptions[0].rockAlt);
+                    this.computerTurnAfterUserSelectedRock();
                 } else if (selection === "Paper") {
-                    this.$store.commit("updateUserImageLink", "https://www.clipartkey.com/mpngs/m/109-1094264_rock-paper-scissors-png.png");
-                    this.$store.commit("updateUserImageAlt", this.paperAlt);
+                    this.$store.commit("updateUserImageLink", this.imagesOfOptions[1].paperSrc);
+                    this.$store.commit("updateUserImageAlt", this.imagesOfOptions[1].paperAlt);
+                    this.computerTurnAfterUserSelectedPaper();
                 } else {
-                    this.$store.commit("updateUserImageLink", "https://www.clipartkey.com/mpngs/m/109-1094404_rock-paper-scissors-png.png");
-                    this.$store.commit("updateUserImageAlt", this.scissorsAlt);
+                    this.$store.commit("updateUserImageLink", this.imagesOfOptions[2].scissorsSrc);
+                    this.$store.commit("updateUserImageAlt", this.imagesOfOptions[2].scissorsAlt);
+                    this.computerTurnAfterUserSelectedScissors();
+                }
+            },
+
+            computerTurnAfterUserSelectedRock: function() {
+                let randomNum = Math.floor(Math.random() * this.computerGeneratedOption.length);
+                if (this.computerGeneratedOption[randomNum] === "Rock") {
+                    this.$store.commit("updateUserTiePoints");
+                    this.$store.commit("updateComputerImageLink", this.imagesOfOptions[0].rockSrc);
+                    this.$store.commit("updateComputerImageAlt", this.imagesOfOptions[0].rockAlt);
+                } else if (this.computerGeneratedOption[randomNum] === "Paper") {
+                    this.$store.commit("updateUserLossPoints");
+                    this.$store.commit("updateComputerImageLink", this.imagesOfOptions[1].paperSrc);
+                    this.$store.commit("updateComputerImageAlt", this.imagesOfOptions[1].paperAlt);
+                } else {
+                    this.$store.commit("updateUserWinPoints");
+                    this.$store.commit("updateComputerImageLink", this.imagesOfOptions[2].scissorsSrc);
+                    this.$store.commit("updateComputerImageAlt", this.imagesOfOptions[2].scissorsAlt);
+                }
+            },
+
+            computerTurnAfterUserSelectedPaper: function() {
+                let randomNum = Math.floor(Math.random() * this.computerGeneratedOption.length);
+                if (this.computerGeneratedOption[randomNum] === "Rock") {
+                    this.$store.commit("updateUserWinPoints");
+                    this.$store.commit("updateComputerImageLink", this.imagesOfOptions[0].rockSrc);
+                    this.$store.commit("updateComputerImageAlt", this.imagesOfOptions[0].rockAlt);
+                } else if (this.computerGeneratedOption[randomNum] === "Paper") {
+                    this.$store.commit("updateUserTiePoints");
+                    this.$store.commit("updateComputerImageLink", this.imagesOfOptions[1].paperSrc);
+                    this.$store.commit("updateComputerImageAlt", this.imagesOfOptions[1].paperAlt);
+                } else {
+                    this.$store.commit("updateUserLossPoints");
+                    this.$store.commit("updateComputerImageLink", this.imagesOfOptions[2].scissorsSrc);
+                    this.$store.commit("updateComputerImageAlt", this.imagesOfOptions[2].scissorsAlt);
+                }
+            },
+
+            computerTurnAfterUserSelectedScissors: function() {
+                let randomNum = Math.floor(Math.random() * this.computerGeneratedOption.length);
+                if (this.computerGeneratedOption[randomNum] === "Rock") {
+                    this.$store.commit("updateUserLossPoints");
+                    this.$store.commit("updateComputerImageLink", this.imagesOfOptions[0].rockSrc);
+                    this.$store.commit("updateComputerImageAlt", this.imagesOfOptions[0].rockAlt);
+                } else if (this.computerGeneratedOption[randomNum] === "Paper") {
+                    this.$store.commit("updateUserWinPoints");
+                    this.$store.commit("updateComputerImageLink", this.imagesOfOptions[1].paperSrc);
+                    this.$store.commit("updateComputerImageAlt", this.imagesOfOptions[1].paperAlt);
+                } else {
+                    this.$store.commit("updateUserTiePoints");
+                    this.$store.commit("updateComputerImageLink", this.imagesOfOptions[2].scissorsSrc);
+                    this.$store.commit("updateComputerImageAlt", this.imagesOfOptions[2].scissorsAlt);
                 }
             }
         },
         computed: {
-            userOptions: function() {
-                return this.$store.state.userButtonSelection;
+            computerGeneratedOption: function() {
+                return this.$store.state.rockPaperScissorsOptions;
             },
+
+            imagesOfOptions: function() {
+                return this.$store.state.rockPaperScissorsImages;
+            }
         },
     }
 </script>
