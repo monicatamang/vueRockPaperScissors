@@ -67,15 +67,17 @@
             computerTurnAfterUserSelectedRock: function() {
                 let randomNum = Math.floor(Math.random() * this.computerGeneratedOption.length);
                 if (this.computerGeneratedOption[randomNum] === "Rock") {
-                    this.$store.commit("updateUserTiePoints");
+                    this.$store.commit("updateTiePoints");
                     this.$store.commit("updateComputerImageLink", this.imagesOfOptions[0].rockSrc);
                     this.$store.commit("updateComputerImageAlt", this.imagesOfOptions[0].rockAlt);
                 } else if (this.computerGeneratedOption[randomNum] === "Paper") {
                     this.$store.commit("updateUserLossPoints");
+                    this.$store.commit("updateComputerWinPoints");
                     this.$store.commit("updateComputerImageLink", this.imagesOfOptions[1].paperSrc);
                     this.$store.commit("updateComputerImageAlt", this.imagesOfOptions[1].paperAlt);
                 } else {
                     this.$store.commit("updateUserWinPoints");
+                    this.$store.commit("updateComputerLossPoints");
                     this.$store.commit("updateComputerImageLink", this.imagesOfOptions[2].scissorsSrc);
                     this.$store.commit("updateComputerImageAlt", this.imagesOfOptions[2].scissorsAlt);
                 }
@@ -85,14 +87,16 @@
                 let randomNum = Math.floor(Math.random() * this.computerGeneratedOption.length);
                 if (this.computerGeneratedOption[randomNum] === "Rock") {
                     this.$store.commit("updateUserWinPoints");
+                    this.$store.commit("updateComputerLossPoints");
                     this.$store.commit("updateComputerImageLink", this.imagesOfOptions[0].rockSrc);
                     this.$store.commit("updateComputerImageAlt", this.imagesOfOptions[0].rockAlt);
                 } else if (this.computerGeneratedOption[randomNum] === "Paper") {
-                    this.$store.commit("updateUserTiePoints");
+                    this.$store.commit("updateTiePoints");
                     this.$store.commit("updateComputerImageLink", this.imagesOfOptions[1].paperSrc);
                     this.$store.commit("updateComputerImageAlt", this.imagesOfOptions[1].paperAlt);
                 } else {
                     this.$store.commit("updateUserLossPoints");
+                    this.$store.commit("updateComputerWinPoints");
                     this.$store.commit("updateComputerImageLink", this.imagesOfOptions[2].scissorsSrc);
                     this.$store.commit("updateComputerImageAlt", this.imagesOfOptions[2].scissorsAlt);
                 }
@@ -102,14 +106,16 @@
                 let randomNum = Math.floor(Math.random() * this.computerGeneratedOption.length);
                 if (this.computerGeneratedOption[randomNum] === "Rock") {
                     this.$store.commit("updateUserLossPoints");
+                    this.$store.commit("updateComputerWinPoints");
                     this.$store.commit("updateComputerImageLink", this.imagesOfOptions[0].rockSrc);
                     this.$store.commit("updateComputerImageAlt", this.imagesOfOptions[0].rockAlt);
                 } else if (this.computerGeneratedOption[randomNum] === "Paper") {
                     this.$store.commit("updateUserWinPoints");
+                    this.$store.commit("updateComputerLossPoints");
                     this.$store.commit("updateComputerImageLink", this.imagesOfOptions[1].paperSrc);
                     this.$store.commit("updateComputerImageAlt", this.imagesOfOptions[1].paperAlt);
                 } else {
-                    this.$store.commit("updateUserTiePoints");
+                    this.$store.commit("updateTiePoints");
                     this.$store.commit("updateComputerImageLink", this.imagesOfOptions[2].scissorsSrc);
                     this.$store.commit("updateComputerImageAlt", this.imagesOfOptions[2].scissorsAlt);
                 }

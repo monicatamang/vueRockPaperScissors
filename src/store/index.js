@@ -5,9 +5,15 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    userWinPoints: 0,
-    userLossPoints: 0,
-    userTiePoints: 0,
+    userScore: {
+      winPoints: 0,
+      lossPoints: 0
+    },
+    computerScore: {
+      winPoints: 0,
+      lossPoints: 0,
+    },
+    tiePoints: 0,
     rockPaperScissorsOptions: [
       "Rock",
       "Paper",
@@ -39,15 +45,23 @@ export default new Vuex.Store({
 
   mutations: {
     updateUserWinPoints: function(state) {
-      state.userWinPoints++;
+      state.userScore.winPoints++;
     },
 
     updateUserLossPoints: function(state) {
-      state.userLossPoints++;
+      state.userScore.lossPoints++;
     },
 
-    updateUserTiePoints: function(state) {
-      state.userTiePoints++;
+    updateComputerWinPoints: function(state) {
+      state.computerScore.winPoints++;
+    },
+
+    updateComputerLossPoints: function(state) {
+      state.computerScore.lossPoints++;
+    },
+
+    updateTiePoints: function(state) {
+      state.tiePoints++;
     },
 
     updateUserImageLink: function(state, data) {

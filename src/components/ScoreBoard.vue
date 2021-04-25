@@ -1,7 +1,13 @@
 <template>
     <div>
-        <p>Win{{ winPoints }}</p>
-        <p>Loss{{ lossPoints }}</p>
+        <h1>User Score</h1>
+        <p>Win{{ userPoints.winPoints }}</p>
+        <p>Loss{{ userPoints.lossPoints }}</p>
+
+        <h1>Computer Score</h1>
+        <p>Win{{ computerPoints.winPoints }}</p>
+        <p>Loss{{ computerPoints.lossPoints }}</p>
+        <br>
         <p>Tie{{ tiePoints }}</p>
     </div>
 </template>
@@ -10,16 +16,16 @@
     export default {
         name: "score-board",
         computed: {
-            winPoints: function() {
-                return this.$store.state.userWinPoints;
+            userPoints: function() {
+                return this.$store.state.userScore;
             },
 
-            lossPoints: function() {
-                return this.$store.state.userLossPoints;
+            computerPoints: function() {
+                return this.$store.state.computerScore;
             },
 
             tiePoints: function() {
-                return this.$store.state.userTiePoints;
+                return this.$store.state.tiePoints;
             }
         },
     }
