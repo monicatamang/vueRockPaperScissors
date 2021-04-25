@@ -32,7 +32,7 @@
             return {
                 // Creating an empty string as a varible and getting the user's login token
                 loginStatus: "",
-                RPSLoginToken: cookies.get(`RPSLoginToken`)
+                RPSLoginToken: cookies.get(`RPSLoginToken`),
             }
         },
         methods: {
