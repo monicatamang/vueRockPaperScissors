@@ -10,14 +10,12 @@
                 <score-board></score-board>
                 <div id="gameArea">
                     <div>
-                        <h1>You</h1>
-                        <button @click="computerTurnAfterUserChosesRock">{{ RPSItems[0].selection }}</button>
-                        <button>{{ RPSItems[1].selection }}</button>
-                        <button>{{ RPSItems[2].selection }}</button>
+                        <user-selection></user-selection>
+                        <button @click="computerTurnAfterUserChosesRock">{{ RPSPlayerSelections[0].selection }}</button>
+                        <button @click="computerTurnAfterUserChosesPaper">{{ RPSPlayerSelections[1].selection }}</button>
+                        <button @click="computerTurnAfterUserChosesScissors">{{ RPSPlayerSelections[2].selection }}</button>
                     </div>
-                    <div>
-                        <h1>Computer</h1>
-                    </div>
+                    <computer-selection></computer-selection>
                 </div>
                 <!-- Inject Computer Selection here -->
             </div>
@@ -28,6 +26,8 @@
 
 <script>
     import cookies from "vue-cookies";
+    import UserSelection from "../components/UserSelection.vue";
+    import ComputerSelection from "../components/ComputerSelection.vue";
     import ScoreBoard from "../components/ScoreBoard.vue";
     import PageFooter from "../components/PageFooter.vue";
 
@@ -35,12 +35,13 @@
         name: "Game",
         components: {
             ScoreBoard,
+            UserSelection,
+            ComputerSelection,
             PageFooter
         },
         data() {
             return {
                 RPSLoginToken: cookies.get(`RPSLoginToken`),
-                // isGameOver: false
             }
         },
         methods: {
@@ -49,21 +50,61 @@
             },
 
             computerTurnAfterUserChosesRock: function() {
-                let randomNum = Math.floor(Math.random() * this.RPSItems.length);
-                console.log(this.RPSItems[randomNum].selection);
-                if (this.RPSItems[randomNum].selection === "Rock") {
+                let randomNum = Math.floor(Math.random() * this.RPSPlayerSelections.length);
+                console.log(this.RPSPlayerSelections[randomNum].selection);
+                if (this.RPSPlayerSelections[randomNum].selection === "Rock") {
                     this.$store.commit("updateTiePoints");
-                } else if (this.RPSItems[randomNum].selection === "Paper") {
+                    this.$store.commit("updateComputerImageName", this.RPSPlayerSelections[randomNum].image);
+                    this.$store.commit("updateComputerImageAlt", this.RPSPlayerSelections[randomNum].alt);
+                } else if (this.RPSPlayerSelections[randomNum].selection === "Paper") {
                     this.$store.commit("updateLossPoints");
+                    this.$store.commit("updateComputerImageName", this.RPSPlayerSelections[randomNum].image);
+                    this.$store.commit("updateComputerImageAlt", this.RPSPlayerSelections[randomNum].alt);
                 } else {
                     this.$store.commit("updateWinPoints");
+                    this.$store.commit("updateComputerImageName", this.RPSPlayerSelections[randomNum].image);
+                    this.$store.commit("updateComputerImageAlt", this.RPSPlayerSelections[randomNum].alt);
                 }
-                // IF RANDOMNUM IS EQUAL TO ROCK, UPDATE THE STORE TO THE PICTURE OF THE ROCK AND INJECT IT INTO THE COMPUTER SELECTION, ETC.
-            }
+            },
+
+            computerTurnAfterUserChosesPaper: function() {
+                let randomNum = Math.floor(Math.random() * this.RPSPlayerSelections.length);
+                console.log(this.RPSPlayerSelections[randomNum].image);
+                if (this.RPSPlayerSelections[randomNum].selection === "Rock") {
+                    this.$store.commit("updateWinPoints");
+                    this.$store.commit("updateComputerImageName", this.RPSPlayerSelections[randomNum].image);
+                    this.$store.commit("updateComputerImageAlt", this.RPSPlayerSelections[randomNum].alt);
+                } else if (this.RPSPlayerSelections[randomNum].selection === "Paper") {
+                    this.$store.commit("updateTiePoints");
+                    this.$store.commit("updateComputerImageName", this.RPSPlayerSelections[randomNum].image);
+                    this.$store.commit("updateComputerImageAlt", this.RPSPlayerSelections[randomNum].alt);
+                } else {
+                    this.$store.commit("updateLossPoints");
+                    this.$store.commit("updateComputerImageName", this.RPSPlayerSelections[randomNum].image);
+                    this.$store.commit("updateComputerImageAlt", this.RPSPlayerSelections[randomNum].alt);
+                }
+            },
+
+            computerTurnAfterUserChosesScissors: function() {
+                let randomNum = Math.floor(Math.random() * this.RPSPlayerSelections.length);
+                if (this.RPSPlayerSelections[randomNum].selection === "Rock") {
+                    this.$store.commit("updateLossPoints");
+                    this.$store.commit("updateComputerImageName", this.RPSPlayerSelections[randomNum].image);
+                    this.$store.commit("updateComputerImageAlt", this.RPSPlayerSelections[randomNum].alt);
+                } else if (this.RPSPlayerSelections[randomNum].selection === "Paper") {
+                    this.$store.commit("updateWinPoints");
+                    this.$store.commit("updateComputerImageName", this.RPSPlayerSelections[randomNum].image);
+                    this.$store.commit("updateComputerImageAlt", this.RPSPlayerSelections[randomNum].alt);
+                } else {
+                    this.$store.commit("updateTiePoints");
+                    this.$store.commit("updateComputerImageName", this.RPSPlayerSelections[randomNum].image);
+                    this.$store.commit("updateComputerImageAlt", this.RPSPlayerSelections[randomNum].alt);
+                }
+            },
         },
         computed: {
-            RPSItems() {
-                return this.$store.state.playerSelection;
+            RPSPlayerSelections: function() {
+                return this.$store.state.userSelection;
             },
         },
     }
