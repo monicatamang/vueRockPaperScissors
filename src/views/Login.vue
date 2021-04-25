@@ -1,14 +1,14 @@
 <template>
     <section>
         <login-header></login-header>
-        <!-- Added a class binding to show the styling of the status message when it is shown on the page -->
+        <!-- Adding a class binding to show the styled version of the status message when it is shown on the page -->
         <p :class="{ showMessage: printStatus }">{{ loginStatus }}</p>
         <main>
             <h1>Login</h1>
             <form action="javascript:void(0)">
                 <input type="text" class="userInputs" id="userEmail" placeholder="Email*">
                 <input type="password" class="userInputs" id="userPassword" placeholder="Password*">
-                <!-- Adding a click event listener which calls the userLogin function -->
+                <!-- When the button is clicked, the userLogin function is called -->
                 <input type="submit" id="loginButton" value="Login" @click="userLogin">
             </form>
         </main>
@@ -17,12 +17,13 @@
 </template>
 
 <script>
-    // Importing axios and cookies to send an API request and store the user's token
+    // Importing axios and cookies and components
     import axios from "axios"
     import cookies from "vue-cookies"
     import LoginHeader from "../components/LoginHeader.vue";
     import PageFooter from "../components/PageFooter.vue";
 
+    // Registering the components
     export default {
         name: "Login",
         components: {
@@ -33,18 +34,19 @@
             return {
                 // Assigning a variable a boolean value to indicate that no status message is initially printed to the user
                 printStatus: false,
-                // Creating an empty string as a varible and getting the user's login token
+                // Creating a variable as an empty string
                 loginStatus: "",
+                // Creating a variable that is assigned the user's login token
                 RPSLoginToken: cookies.get(`RPSLoginToken`)
             }
         },
         methods: {
-            // Creating a function that is called when the button is clicked and sends a POST request
+            // Creating a function that is called when the button is clicked
             userLogin: function() {
                 // Printing a loading message to the user
                 this.loginStatus = `Setting up the game...`;
 
-                // Declaring the variable to true so that it can toggle the class binding on and show the styled version of the status message
+                // Declaring the variable to true so that it can toggle the class binding on and show the styled version of the status message to the user
                 this.printStatus = true;
 
                 // Configuring an axios request with the type, url, content-type, the user's email and password
@@ -59,9 +61,9 @@
                         password: document.getElementById(`userPassword`).value
                     }
                 }).then((res) => {
-                    // If the network is done and no errors occur, set a cookie with the user's login token in the browser and re-declare the RPSLoginToken to be the token returned by the API
+                    // If the network is done and no errors occur, set a cookie with the user's login token
                     cookies.set(`RPSLoginToken`, res.data.token);
-                    this.RPSLoginToken = res.data.token;
+                    
                     // If the user has logged in successfully, the user will be shown the game page
                     this.$router.push('Game');
                 }).catch((err) => {
@@ -69,7 +71,7 @@
                     console.log(err);
                     this.loginStatus = `Invalid email or password. Please try again.`;
 
-                    // Declaring the variable to true so that it can toggle the class binding and show the styled version of the status message
+                    // Declaring the variable to be true so that it can toggle the class binding on and show the styled version of the status message
                     this.printStatus = true;
                 });
             }

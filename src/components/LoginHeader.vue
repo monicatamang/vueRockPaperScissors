@@ -2,7 +2,7 @@
     <header>
         <h1>Rock Paper Scissors</h1>
         <p>Let's Play!</p>
-        <!-- Setting the image source and description to the values obtained from the store and displaying the rock, paper and scissors image on the login page -->
+        <!-- Setting the image source and description to the values obtained from the store and displaying the rock, paper and scissors images on the login page -->
         <div id="imageContainer">
             <img id="rock" :src="optionImages[0].rockSrc" :alt="optionImages[0].rockAlt">
             <img id="paper" :src="optionImages[1].paperSrc" :alt="optionImages[1].paperAlt">

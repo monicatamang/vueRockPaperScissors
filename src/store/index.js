@@ -57,37 +57,37 @@ export default new Vuex.Store({
   },
 
   mutations: {
-    // Creating a function that will increase the user's win points by one if the user wins the game
+    // Creating a function that will increase the user's win points by one point if the user wins the game
     updateUserWinPoints: function(state) {
       state.userScore.winPoints++;
     },
 
-    // Creating a function that will increase the user's loss points by one if the user loses the game
+    // Creating a function that will increase the user's loss points by one point if the user loses the game
     updateUserLossPoints: function(state) {
       state.userScore.lossPoints++;
     },
 
-    // Creating a function that will increase the computer's win points by one if the computer wins the game
+    // Creating a function that will increase the computer's win points by one point if the computer wins the game
     updateComputerWinPoints: function(state) {
       state.computerScore.winPoints++;
     },
 
-    // Creating a function that will increase the computer's loss points by one if the computer loses the game
+    // Creating a function that will increase the computer's loss points by one point if the computer loses the game
     updateComputerLossPoints: function(state) {
       state.computerScore.lossPoints++;
     },
 
-    // Creating a function that will increase the number ties by one if the user and computer show the same options
+    // Creating a function that will increase the number of ties by one point if the user and computer show the same options
     updateTiePoints: function(state) {
       state.tiePoints++;
     },
 
-    // Creating a function that will update the image source to whatever option the user has selected
+    // Creating a function that will update the image source to the option the user has selected
     updateUserImageLink: function(state, data) {
       state.userSelectionImage.src = data;
     },
 
-    // Creating a function that will update the image description to whatever option the user has selected
+    // Creating a function that will update the image description to the option the user has selected
     updateUserImageAlt: function(state, data) {
       state.userSelectionImage.alt = data;
     },

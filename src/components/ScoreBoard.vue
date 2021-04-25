@@ -1,19 +1,42 @@
 <template>
-    <div>
-        <h1>User Score</h1>
-        <!-- Displaying the user's win and loss points to the game page -->
-        <p>Win{{ userPoints.winPoints }}</p>
-        <p>Loss{{ userPoints.lossPoints }}</p>
-
-        <!-- Displaying the computer's win and loss points to the game page -->
-        <h1>Computer Score</h1>
-        <p>Win{{ computerPoints.winPoints }}</p>
-        <p>Loss{{ computerPoints.lossPoints }}</p>
-        <br>
-
-        <!-- Displaying the the total tie points to the game page -->
-        <p>Tie{{ tiePoints }}</p>
-    </div>
+    <article id="mainScoreboard">
+        <div class="scoreboards">
+            <!-- Displaying the user's win, loss and tie points to the game page -->
+            <h1>Your Score</h1>
+            <div class="individualScoreboards">
+                <div>
+                    <h4>Win</h4>
+                    <p>{{ userPoints.winPoints }}</p>
+                </div>
+                <div>
+                    <h4>Loss</h4>
+                    <p>{{ userPoints.lossPoints }}</p>
+                </div>
+                <div>
+                    <h4>Tie</h4>
+                    <p>{{ tiePoints }}</p>
+                </div>
+            </div>
+        </div>
+        <div class="scoreboards" id="computerScoreboard">
+            <!-- Displaying the computer's win, loss and tie points to the game page -->
+            <h1>Computer Score</h1>
+            <div class="individualScoreboards">
+                <div>
+                    <h4>Win</h4>
+                    <p>{{ computerPoints.winPoints }}</p>
+                </div>
+                <div>
+                    <h4>Loss</h4>
+                    <p>{{ computerPoints.lossPoints }}</p>
+                </div>
+                <div>
+                    <h4>Tie</h4>
+                    <p>{{ tiePoints }}</p>
+                </div>
+            </div>
+        </div>
+    </article>
 </template>
 
 <script>
@@ -39,5 +62,36 @@
 </script>
 
 <style scoped>
+    #mainScoreboard {
+        display: grid;
+        place-items: center;
+        grid-template-columns: repeat(2, 1fr);
+        width: 50vw;
+        margin-top: 8vh;
+    }
 
+    .scoreboards {
+        display: grid;
+        place-items: center;
+        background: white;
+        width: 80%;
+        height: 100%;
+        box-shadow: 1px 1px 3px lightgrey;
+    }
+
+    .scoreboards > h1, .scoreboards > h4 {
+        font-weight: 600;
+        padding: 2vh 0vh;
+        color: whitesmoke;
+        background: rgba(0, 0, 0, 0.8);
+        width: 100%;
+    }
+
+    .individualScoreboards {
+        display: grid;
+        place-items: center;
+        grid-template-columns: repeat(3, 1fr);
+        width: 100%;
+        padding: 3vh 0vh;
+    }
 </style>
