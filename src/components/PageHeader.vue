@@ -13,7 +13,7 @@
         name: "page-header",
         computed: {
             imageDescriptions: function() {
-                return this.$store.state.RPSSelection;
+                return this.$store.state.playSelection;
             }
         },
     }
