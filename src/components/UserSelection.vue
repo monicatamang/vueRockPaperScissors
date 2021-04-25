@@ -2,7 +2,7 @@
     <div>
         <h1>You</h1>
         <div>
-            
+            <img :src="userImage.link" :alt="userImage.alt">
         </div>
     </div>
 </template>
@@ -10,16 +10,16 @@
 <script>
     export default {
         name: "user-selection",
+        computed: {
+            userImage: function() {
+                return this.$store.state.userSelectionImage;
+            }
+        },
     }
 </script>
 
 <style scoped>
-    /* .showImage {
-        display: block;
-    }
-
     img {
-        width: 10vw;
-        display: none;
-    } */
+        width: 20vw;
+    }
 </style>

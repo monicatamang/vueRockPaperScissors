@@ -1,7 +1,7 @@
 <template>
     <div>
         <h1>Computer</h1>
-        <img :src="computerImage.image" :alt="computerImage.alt">
+        <img :src="computerPlayerImage.link" :alt="computerPlayerImage.alt">
     </div>
 </template>
 
@@ -9,8 +9,8 @@
     export default {
         name: "computer-selection",
         computed: {
-            computerImage: function() {
-                return this.$store.state.computerSelection;
+            computerPlayerImage: function() {
+                return this.$store.state.computerSelectionImage;
             }
         },
     }
@@ -18,6 +18,6 @@
 
 <style scoped>
     img {
-        width: 10vw;
+        width: 20vw;
     }
 </style>

@@ -8,25 +8,17 @@ export default new Vuex.Store({
     winPoints: 0,
     lossPoints: 0,
     tiePoints: 0,
-    userSelection: [
-      {
-        selection: "Rock",
-        image: "https://www.kindpng.com/picc/m/266-2667213_transparent-rock-paper-scissors-clipart-clipart-rock-paper.png",
-        alt: "A clipart of a fist positioned to the left representing the symbol of a rock in the game 'rock, paper, scissors' that is styled with a dark pink circular background."
-      },
-      {
-        selection: "Paper",
-        image: "https://www.clipartkey.com/mpngs/m/109-1094264_rock-paper-scissors-png.png",
-        alt: "A clipart of a open hand positioned to the left representing the symbol of a rock in the game 'rock, paper, scissors' that is styled with a yellow circular background."
-      },
-      {
-        selection: "Scissors",
-        image: "https://www.clipartkey.com/mpngs/m/109-1094404_rock-paper-scissors-png.png",
-        alt: "A clipart of a hand creating the shape of a pair of scissors positioned to the left representing the symbol of a rock in the game 'rock, paper, scissors' that is styled with a turquorise circular background."
-      },
+    userButtonSelection: [
+      "Rock",
+      "Paper",
+      "Scissors"
     ],
-    computerSelection: {
-      image: "",
+    userSelectionImage: {
+      link: "",
+      alt: ""
+    },
+    computerSelectionImage: {
+      link: "",
       alt: ""
     },
   },
@@ -44,12 +36,20 @@ export default new Vuex.Store({
       state.tiePoints++;
     },
 
-    updateComputerImageName: function(state, data) {
-      state.computerSelection.image = data;
+    updateUserImageLink: function(state, data) {
+      state.userSelectionImage.link = data;
+    },
+
+    updateUserImageAlt: function(state, data) {
+      state.userSelectionAlt.link = data;
+    },
+
+    updateComputerImageLink: function(state, data) {
+      state.computerSelectionImage.link = data;
     },
 
     updateComputerImageAlt: function(state, data) {
-      state.computerSelection.alt = data;
+      state.computerSelectionImage.alt = data;
     }
   },
   actions: {
