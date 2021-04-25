@@ -1,5 +1,5 @@
 <template>
-    <article id="mainScoreboard">
+    <article id="scoreboardContainer">
         <div class="scoreboards">
             <!-- Displaying the user's win, loss and tie points to the game page -->
             <h1>Your Score</h1>
@@ -62,7 +62,7 @@
 </script>
 
 <style scoped>
-    #mainScoreboard {
+    #scoreboardContainer {
         display: grid;
         place-items: center;
         grid-template-columns: repeat(2, 1fr);

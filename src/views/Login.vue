@@ -17,7 +17,7 @@
 </template>
 
 <script>
-    // Importing axios and cookies and components
+    // Importing axios and cookies and components to the login page
     import axios from "axios"
     import cookies from "vue-cookies"
     import LoginHeader from "../components/LoginHeader.vue";
