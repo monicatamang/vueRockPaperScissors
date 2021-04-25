@@ -1,6 +1,6 @@
 <template>
     <section>
-        <page-header></page-header>
+        <login-header></login-header>
         <main>
             <h1>Login</h1>
             <form action="javascript:void(0)">
@@ -19,13 +19,13 @@
     // Importing axios and cookies to send an API request and store the user's token
     import axios from "axios"
     import cookies from "vue-cookies"
-    import PageHeader from "../components/PageHeader.vue";
+    import LoginHeader from "../components/LoginHeader.vue";
     import PageFooter from "../components/PageFooter.vue";
 
     export default {
         name: "Login",
         components: {
-            PageHeader,
+            LoginHeader,
             PageFooter
         },
         data: function() {

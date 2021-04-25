@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <!-- Showing the user which page they're currently viewing  -->
     <router-view/>
   </div>
 </template>
