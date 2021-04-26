@@ -91,27 +91,27 @@
                 // Defining a local varaible that generates a random number between 0 and 2
                 let randomNum = Math.floor(Math.random() * this.computerGeneratedOption.length);
 
-                // If the computer's selection is rock, increase the number of tie points by one point and update the value of computer's selection image data to the rock source and image description in the store
+                // If the computer's selection is rock, update the value of computer's selection image data to the rock source and image description in the store then increase the number of tie points by one point
                 if (this.computerGeneratedOption[randomNum] === "Rock") {
-                    this.$store.commit("updateTiePoints");
                     this.$store.commit("updateComputerImageLink", this.imagesOfOptions[0].rockSrc);
                     this.$store.commit("updateComputerImageAlt", this.imagesOfOptions[0].rockAlt);
+                    this.$store.commit("updateTiePoints");
                 } 
                 
-                // If the computer's selection is paper, increase user's loss points by one point, increase computer's win points by one point and update the value of computer's selection image data to the paper source and image description in the store
+                // If the computer's selection is paper, update the value of computer's selection image data to the paper source and image description in the store then increase user's loss points by one point and increase computer's win points by one point
                 else if (this.computerGeneratedOption[randomNum] === "Paper") {
-                    this.$store.commit("updateUserLossPoints");
-                    this.$store.commit("updateComputerWinPoints");
                     this.$store.commit("updateComputerImageLink", this.imagesOfOptions[1].paperSrc);
                     this.$store.commit("updateComputerImageAlt", this.imagesOfOptions[1].paperAlt);
+                    this.$store.commit("updateUserLossPoints");
+                    this.$store.commit("updateComputerWinPoints");
                 } 
                 
-                // If the computer's selection is scissors, increase user's win points by one point, increase computer's loss points by one point and update the value of computer's selection image data to the scissors source and image description in the store
+                // If the computer's selection is scissors, update the value of computer's selection image data to the scissors source and image description in the store then increase user's win points by one point and increase computer's loss points by one point
                 else {
-                    this.$store.commit("updateUserWinPoints");
-                    this.$store.commit("updateComputerLossPoints");
                     this.$store.commit("updateComputerImageLink", this.imagesOfOptions[2].scissorsSrc);
                     this.$store.commit("updateComputerImageAlt", this.imagesOfOptions[2].scissorsAlt);
+                    this.$store.commit("updateUserWinPoints");
+                    this.$store.commit("updateComputerLossPoints");
                 }
             },
 
@@ -121,27 +121,27 @@
                 // Defining a local variable that generates a random number between 0 and 2
                 let randomNum = Math.floor(Math.random() * this.computerGeneratedOption.length);
 
-                // If the computer's selection is rock, increase user's win points by one point, increase computer's loss points by one point and update the value of computer's selection image data to the rock source and image description in the store
+                // If the computer's selection is rock, update the value of computer's selection image data to the rock source and image description in the store then increase user's win points by one point and increase computer's loss points by one point
                 if (this.computerGeneratedOption[randomNum] === "Rock") {
-                    this.$store.commit("updateUserWinPoints");
-                    this.$store.commit("updateComputerLossPoints");
                     this.$store.commit("updateComputerImageLink", this.imagesOfOptions[0].rockSrc);
                     this.$store.commit("updateComputerImageAlt", this.imagesOfOptions[0].rockAlt);
+                    this.$store.commit("updateUserWinPoints");
+                    this.$store.commit("updateComputerLossPoints");
                 } 
                 
-                // If the computer's selection is paper, increase the number of tie points by one point and update the value of computer's selection image data to the paper source and image description in the store
+                // If the computer's selection is paper, update the value of computer's selection image data to the paper source and image description in the store then increase the number of tie points by one point
                 else if (this.computerGeneratedOption[randomNum] === "Paper") {
-                    this.$store.commit("updateTiePoints");
                     this.$store.commit("updateComputerImageLink", this.imagesOfOptions[1].paperSrc);
                     this.$store.commit("updateComputerImageAlt", this.imagesOfOptions[1].paperAlt);
+                    this.$store.commit("updateTiePoints");
                 } 
                 
-                // If the computer's selection is scissors, increase user's loss points by one point, increase computer's win points by one point and update the value of computer's selection image data to the scissors source and image description in the store
+                // If the computer's selection is scissors, update the value of computer's selection image data to the scissors source and image description in the store then increase user's loss points by one point and increase computer's win points by one point
                 else {
-                    this.$store.commit("updateUserLossPoints");
-                    this.$store.commit("updateComputerWinPoints");
                     this.$store.commit("updateComputerImageLink", this.imagesOfOptions[2].scissorsSrc);
                     this.$store.commit("updateComputerImageAlt", this.imagesOfOptions[2].scissorsAlt);
+                    this.$store.commit("updateUserLossPoints");
+                    this.$store.commit("updateComputerWinPoints");
                 }
             },
 
@@ -151,27 +151,27 @@
                 // Defining a local varaible that generates a random number between 0 and 2
                 let randomNum = Math.floor(Math.random() * this.computerGeneratedOption.length);
 
-                // If the computer's selection is rock, increase user's loss points by one point, increase computer's win points by one point and update the value of computer's selection image data to the rock source and image description in the store
+                // If the computer's selection is rock, update the value of computer's selection image data to the rock source and image description in the store then increase user's loss points by one point and increase computer's win points by one point
                 if (this.computerGeneratedOption[randomNum] === "Rock") {
-                    this.$store.commit("updateUserLossPoints");
-                    this.$store.commit("updateComputerWinPoints");
                     this.$store.commit("updateComputerImageLink", this.imagesOfOptions[0].rockSrc);
                     this.$store.commit("updateComputerImageAlt", this.imagesOfOptions[0].rockAlt);
+                    this.$store.commit("updateUserLossPoints");
+                    this.$store.commit("updateComputerWinPoints");
                 } 
                 
-                // If the computer's selection is paper, increase user's win points by one point, increase computer's loss points by one point and update the value of computer's selection image data to the paper source and image description in the store
+                // If the computer's selection is paper, update the value of computer's selection image data to the paper source and image description in the store then increase user's win points by one point and increase computer's loss points by one point
                 else if (this.computerGeneratedOption[randomNum] === "Paper") {
-                    this.$store.commit("updateUserWinPoints");
-                    this.$store.commit("updateComputerLossPoints");
                     this.$store.commit("updateComputerImageLink", this.imagesOfOptions[1].paperSrc);
                     this.$store.commit("updateComputerImageAlt", this.imagesOfOptions[1].paperAlt);
+                    this.$store.commit("updateUserWinPoints");
+                    this.$store.commit("updateComputerLossPoints");
                 } 
                 
-                // If the computer's selection is scissors, increase the number of tie points by one point and update the value of computer's selection image data to the scissors source and image description in the store
+                // If the computer's selection is scissors, update the value of computer's selection image data to the scissors source and image description in the store then increase the number of tie points by one point
                 else {
-                    this.$store.commit("updateTiePoints");
                     this.$store.commit("updateComputerImageLink", this.imagesOfOptions[2].scissorsSrc);
                     this.$store.commit("updateComputerImageAlt", this.imagesOfOptions[2].scissorsAlt);
+                    this.$store.commit("updateTiePoints");
                 }
             }
         },
