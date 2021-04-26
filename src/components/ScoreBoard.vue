@@ -94,4 +94,12 @@
         width: 100%;
         padding: 3vh 0vh;
     }
+
+    h4, p {
+        font-size: 1.1rem;
+    }
+
+    h4 {
+        margin-bottom: 2vh;
+    }
 </style>
