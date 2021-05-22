@@ -1,13 +1,12 @@
 <template>
     <section>
         <article id="gameContainer">
-            <!-- If the user is not logged in, prompt the user to login -->
+
             <div v-if="!RPSLoginToken">
                 <p>You are not logged in. Please go back to the login page.</p>
-                <button id="backButton" @click="takeUserToLoginPage">Back</button>
+                <button id="backButton" @click="takeUserToLoginPage">Login Page</button>
             </div>
 
-            <!-- If the user is logged in, show the user the game page -->
             <div v-else>
                 <game-header></game-header>
                 <score-board></score-board>
@@ -15,7 +14,6 @@
                     <div>
                         <user-selection></user-selection>
                         <div id="userOptionButtons">
-                            <!-- When the user clicks on one of the following buttons, the click event listener will call the userTurn function and pass the user's selection as an argument -->
                             <button @click="userTurn(`Rock`)">Rock</button>
                             <button @click="userTurn(`Paper`)">Paper</button>
                             <button @click="userTurn(`Scissors`)">Scissors</button>
@@ -30,7 +28,6 @@
 </template>
 
 <script>
-    // Importing cookies and components to the game page
     import cookies from "vue-cookies";
     import GameHeader from "../components/GameHeader.vue";
     import UserSelection from "../components/UserSelection.vue";
@@ -38,7 +35,6 @@
     import ScoreBoard from "../components/ScoreBoard.vue";
     import PageFooter from "../components/PageFooter.vue";
 
-    // Registering each component
     export default {
         name: "Game",
         components: {
@@ -48,144 +44,129 @@
             ScoreBoard,
             PageFooter
         },
+
         data() {
             return {
-                // Creating a variable and setting its value as the user's login token
                 RPSLoginToken: cookies.get(`RPSLoginToken`)
             }
         },
+
         methods: {
-            // Creating a function that will take the user back to the login page when the "back" button is clicked
-            takeUserToLoginPage: function() {
+            
+            takeUserToLoginPage() {
                 this.$router.push('/');
             },
 
-            // Creating a function that is called when the user makes a selection
-            userTurn: function(selection) {
-                
-                // If the user's selection is rock, update the value of the user's selection image data to the rock source and image description in the store and call the function to generate a random move for the computer's turn
-                if (selection === "Rock") {
-                    this.$store.commit("updateUserImageLink", this.imagesOfOptions[0].rockSrc);
-                    this.$store.commit("updateUserImageAlt", this.imagesOfOptions[0].rockAlt);
-                    this.computerTurnAfterUserSelectedRock();
-                } 
-                
-                // If the user's selection is paper, update the value of the user's selection image data to the paper source and image description in the store and call the function to generate a random move for the computer's turn
-                else if (selection === "Paper") {
-                    this.$store.commit("updateUserImageLink", this.imagesOfOptions[1].paperSrc);
-                    this.$store.commit("updateUserImageAlt", this.imagesOfOptions[1].paperAlt);
-                    this.computerTurnAfterUserSelectedPaper();
-                } 
-                
-                // If the user's selection is scissors, update the value of the user's selection image data to the scissors source and image description in the store and call the function to generate a random move for the computer's turn
-                else {
-                    this.$store.commit("updateUserImageLink", this.imagesOfOptions[2].scissorsSrc);
-                    this.$store.commit("updateUserImageAlt", this.imagesOfOptions[2].scissorsAlt);
-                    this.computerTurnAfterUserSelectedScissors();
-                }
-            },
+            userSelectedRock() {
 
-            // Creating a function that is called when the user selects "Rock"
-            computerTurnAfterUserSelectedRock: function() {
-                
-                // Defining a local varaible that generates a random number between 0 and 2
-                let randomNum = Math.floor(Math.random() * this.computerGeneratedOption.length);
+                let randomNum = Math.floor(Math.random() * this.RPSImages.length);
 
-                // If the computer's selection is rock, update the value of computer's selection image data to the rock source and image description in the store then increase the number of tie points by one point
-                if (this.computerGeneratedOption[randomNum] === "Rock") {
-                    this.$store.commit("updateComputerImageLink", this.imagesOfOptions[0].rockSrc);
-                    this.$store.commit("updateComputerImageAlt", this.imagesOfOptions[0].rockAlt);
+                if(this.RPSImages[randomNum].option === "Rock") {
+                    this.$store.commit("updateComputerImageLink", this.RPSImages[randomNum].src);
+                    this.$store.commit("updateComputerImageAlt", this.RPSImages[randomNum].alt);
                     this.$store.commit("updateTiePoints");
-                } 
-                
-                // If the computer's selection is paper, update the value of computer's selection image data to the paper source and image description in the store then increase user's loss points by one point and increase computer's win points by one point
-                else if (this.computerGeneratedOption[randomNum] === "Paper") {
-                    this.$store.commit("updateComputerImageLink", this.imagesOfOptions[1].paperSrc);
-                    this.$store.commit("updateComputerImageAlt", this.imagesOfOptions[1].paperAlt);
+                }
+
+                else if (this.RPSImages[randomNum].option === "Paper") {
+                    this.$store.commit("updateComputerImageLink", this.RPSImages[randomNum].src);
+                    this.$store.commit("updateComputerImageAlt", this.RPSImages[randomNum].alt);
                     this.$store.commit("updateUserLossPoints");
                     this.$store.commit("updateComputerWinPoints");
-                } 
-                
-                // If the computer's selection is scissors, update the value of computer's selection image data to the scissors source and image description in the store then increase user's win points by one point and increase computer's loss points by one point
-                else {
-                    this.$store.commit("updateComputerImageLink", this.imagesOfOptions[2].scissorsSrc);
-                    this.$store.commit("updateComputerImageAlt", this.imagesOfOptions[2].scissorsAlt);
+                }
+
+                else if (this.RPSImages[randomNum].option === "Scissors") {
+                    this.$store.commit("updateComputerImageLink", this.RPSImages[randomNum].src);
+                    this.$store.commit("updateComputerImageAlt", this.RPSImages[randomNum].alt);
                     this.$store.commit("updateUserWinPoints");
                     this.$store.commit("updateComputerLossPoints");
                 }
             },
 
-            // Creating a function that is called when the user selects "Paper"
-            computerTurnAfterUserSelectedPaper: function() {
+            userSelectedPaper() {
+                
+                let randomNum = Math.floor(Math.random() * this.RPSImages.length);
 
-                // Defining a local variable that generates a random number between 0 and 2
-                let randomNum = Math.floor(Math.random() * this.computerGeneratedOption.length);
-
-                // If the computer's selection is rock, update the value of computer's selection image data to the rock source and image description in the store then increase user's win points by one point and increase computer's loss points by one point
-                if (this.computerGeneratedOption[randomNum] === "Rock") {
-                    this.$store.commit("updateComputerImageLink", this.imagesOfOptions[0].rockSrc);
-                    this.$store.commit("updateComputerImageAlt", this.imagesOfOptions[0].rockAlt);
+                if (this.RPSImages[randomNum].option === "Rock") {
+                    this.$store.commit("updateComputerImageLink", this.RPSImages[randomNum].src);
+                    this.$store.commit("updateComputerImageAlt", this.RPSImages[randomNum].alt);
                     this.$store.commit("updateUserWinPoints");
                     this.$store.commit("updateComputerLossPoints");
-                } 
-                
-                // If the computer's selection is paper, update the value of computer's selection image data to the paper source and image description in the store then increase the number of tie points by one point
-                else if (this.computerGeneratedOption[randomNum] === "Paper") {
-                    this.$store.commit("updateComputerImageLink", this.imagesOfOptions[1].paperSrc);
-                    this.$store.commit("updateComputerImageAlt", this.imagesOfOptions[1].paperAlt);
+                }
+
+                else if (this.RPSImages[randomNum].option === "Paper") {
+                    this.$store.commit("updateComputerImageLink", this.RPSImages[randomNum].src);
+                    this.$store.commit("updateComputerImageAlt", this.RPSImages[randomNum].alt);
                     this.$store.commit("updateTiePoints");
-                } 
-                
-                // If the computer's selection is scissors, update the value of computer's selection image data to the scissors source and image description in the store then increase user's loss points by one point and increase computer's win points by one point
-                else {
-                    this.$store.commit("updateComputerImageLink", this.imagesOfOptions[2].scissorsSrc);
-                    this.$store.commit("updateComputerImageAlt", this.imagesOfOptions[2].scissorsAlt);
+                }
+
+                else if (this.RPSImages[randomNum].option === "Scissors") {
+                    this.$store.commit("updateComputerImageLink", this.RPSImages[randomNum].src);
+                    this.$store.commit("updateComputerImageAlt", this.RPSImages[randomNum].alt);
                     this.$store.commit("updateUserLossPoints");
                     this.$store.commit("updateComputerWinPoints");
                 }
             },
 
-            // Creating a function that is called when the user selects "Scissors"
-            computerTurnAfterUserSelectedScissors: function() {
+            userSelectedScissors() {
+                
+                let randomNum = Math.floor(Math.random() * this.RPSImages.length);
 
-                // Defining a local varaible that generates a random number between 0 and 2
-                let randomNum = Math.floor(Math.random() * this.computerGeneratedOption.length);
-
-                // If the computer's selection is rock, update the value of computer's selection image data to the rock source and image description in the store then increase user's loss points by one point and increase computer's win points by one point
-                if (this.computerGeneratedOption[randomNum] === "Rock") {
-                    this.$store.commit("updateComputerImageLink", this.imagesOfOptions[0].rockSrc);
-                    this.$store.commit("updateComputerImageAlt", this.imagesOfOptions[0].rockAlt);
+                if (this.RPSImages[randomNum].option === "Rock") {
+                    this.$store.commit("updateComputerImageLink", this.RPSImages[randomNum].src);
+                    this.$store.commit("updateComputerImageAlt", this.RPSImages[randomNum].alt);
                     this.$store.commit("updateUserLossPoints");
                     this.$store.commit("updateComputerWinPoints");
-                } 
-                
-                // If the computer's selection is paper, update the value of computer's selection image data to the paper source and image description in the store then increase user's win points by one point and increase computer's loss points by one point
-                else if (this.computerGeneratedOption[randomNum] === "Paper") {
-                    this.$store.commit("updateComputerImageLink", this.imagesOfOptions[1].paperSrc);
-                    this.$store.commit("updateComputerImageAlt", this.imagesOfOptions[1].paperAlt);
+                }
+
+                else if (this.RPSImages[randomNum].option === "Paper") {
+                    this.$store.commit("updateComputerImageLink", this.RPSImages[randomNum].src);
+                    this.$store.commit("updateComputerImageAlt", this.RPSImages[randomNum].alt);
                     this.$store.commit("updateUserWinPoints");
                     this.$store.commit("updateComputerLossPoints");
-                } 
-                
-                // If the computer's selection is scissors, update the value of computer's selection image data to the scissors source and image description in the store then increase the number of tie points by one point
-                else {
-                    this.$store.commit("updateComputerImageLink", this.imagesOfOptions[2].scissorsSrc);
-                    this.$store.commit("updateComputerImageAlt", this.imagesOfOptions[2].scissorsAlt);
+                }
+
+                else if (this.RPSImages[randomNum].option === "Scissors") {
+                    this.$store.commit("updateComputerImageLink", this.RPSImages[randomNum].src);
+                    this.$store.commit("updateComputerImageAlt", this.RPSImages[randomNum].alt);
                     this.$store.commit("updateTiePoints");
                 }
-            }
+                
+            },
+
+            computerTurn(userSelection) {
+
+                if (userSelection === "Rock") {
+                    this.userSelectedRock();
+                }
+
+                else if (userSelection === "Paper") {
+                    this.userSelectedPaper();
+                }
+
+                else if (userSelection === "Scissors") {
+                    this.userSelectedScissors();
+                }
+            },
+
+            userTurn(selection) {
+
+                for (let i = 0; i < this.RPSImages.length; i++) {
+
+                    if (selection === this.RPSImages[i].option) {
+                        this.$store.commit("updateUserImageLink", this.RPSImages[i].src);
+                        this.$store.commit("updateUserImageAlt", this.RPSImages[i].alt);
+                        this.computerTurn(this.RPSImages[i].option);
+                    }
+                }
+            },
         },
-        computed: {
-            // Creating a function that gets the value of all the game options from the store
-            computerGeneratedOption: function() {
-                return this.$store.state.rockPaperScissorsOptions;
-            },
 
-            // Creating a function that gets the value of all the image data from the store
-            imagesOfOptions: function() {
+        computed: {
+
+            RPSImages: function() {
                 return this.$store.state.rockPaperScissorsImages;
             }
-        },
+        }
     }
 </script>
 

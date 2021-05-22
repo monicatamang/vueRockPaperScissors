@@ -12,6 +12,9 @@
 
 <style scoped>
     footer {
+        display: grid;
+        place-items: center;
         min-height: 5vh;
+        font-size: 0.9rem;
     }
 </style>

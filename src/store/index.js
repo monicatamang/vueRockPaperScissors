@@ -20,26 +20,22 @@ export default new Vuex.Store({
     // Creating a variable that represents the number of ties in the game and initially setting it to zero
     tiePoints: 0,
 
-    // Creating an array of the three game options as strings
-    rockPaperScissorsOptions: [
-      "Rock",
-      "Paper",
-      "Scissors"
-    ],
-
     // Creating an array of each game option image data as objects
     rockPaperScissorsImages: [
       {
-        rockSrc: "https://www.kindpng.com/picc/m/266-2667213_transparent-rock-paper-scissors-clipart-clipart-rock-paper.png",
-        rockAlt: "A clipart of a fist positioned to the left representing the symbol of a rock in the game 'rock, paper, scissors' that is styled with a white circular, black-bordered background."
+        option: "Rock",
+        src: "https://www.kindpng.com/picc/m/266-2667213_transparent-rock-paper-scissors-clipart-clipart-rock-paper.png",
+        alt: "A clipart of a fist positioned to the left representing the symbol of a rock in the game 'rock, paper, scissors' that is styled with a white circular, black-bordered background."
       },
       {
-        paperSrc: "https://www.clipartkey.com/mpngs/m/109-1094264_rock-paper-scissors-png.png",
-        paperAlt: "A clipart of a open hand positioned to the left representing the symbol of a rock in the game 'rock, paper, scissors' that is styled with a white circular, black-bordered background."
+        option: "Paper",
+        src: "https://www.clipartkey.com/mpngs/m/109-1094264_rock-paper-scissors-png.png",
+        alt: "A clipart of a open hand positioned to the left representing the symbol of a rock in the game 'rock, paper, scissors' that is styled with a white circular, black-bordered background."
       },
       {
-        scissorsSrc: "https://www.clipartkey.com/mpngs/m/109-1094404_rock-paper-scissors-png.png",
-        scissorsAlt: "A clipart of a hand creating the shape of a pair of scissors positioned to the left representing the symbol of a rock in the game 'rock, paper, scissors' that is styled  with a white circular, black-bordered background."
+        option: "Scissors",
+        src: "https://www.clipartkey.com/mpngs/m/109-1094404_rock-paper-scissors-png.png",
+        alt: "A clipart of a hand creating the shape of a pair of scissors positioned to the left representing the symbol of a rock in the game 'rock, paper, scissors' that is styled  with a white circular, black-bordered background."
       }
     ],
 
@@ -104,7 +100,10 @@ export default new Vuex.Store({
   },
 
   actions: {
+
   },
+
   getters: {
+
   }
 })
