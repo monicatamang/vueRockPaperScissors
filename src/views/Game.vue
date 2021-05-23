@@ -1,5 +1,6 @@
 <template>
     <section>
+        <desktop-header id="desktopHeader"></desktop-header>
         <article id="gameContainer">
 
             <div id="noLoginTokenMessage" v-if="!RPSLoginToken">
@@ -20,7 +21,7 @@
                     <button @click="userTurn(`Scissors`)">Scissors</button>
                 </div>
                 <help-button></help-button>
-                <logout-button></logout-button>
+                <logout-button id="logoutButton"></logout-button>
             </div>
 
         </article>
@@ -30,6 +31,7 @@
 
 <script>
     import cookies from "vue-cookies";
+    import DesktopHeader from "../components/DesktopHeader.vue";
     import HelpButton from "../components/HelpButton.vue";
     import GameHeader from "../components/GameHeader.vue";
     import UserSelection from "../components/UserSelection.vue";
@@ -42,6 +44,7 @@
         name: "Game",
 
         components: {
+            DesktopHeader,
             GameHeader,
             HelpButton,
             UserSelection,
@@ -203,6 +206,10 @@
         box-shadow: none;
     }
 
+    #desktopHeader {
+        display: none;
+    }
+
     #gameContainer {
         display: grid;
         place-items: center;
@@ -236,17 +243,12 @@
         border: none;
         width: 100%;
         padding: 1.5vh;
-        box-shadow: 1px 1px 5px lightgrey;
-        cursor: pointer;
-    }
-
-    /* #userOptionButtons > button:hover {
-        box-shadow: 1px 1px 5px grey;
+        box-shadow: 3px 3px 10px darkgrey;
     }
 
     #userOptionButtons > button:active {
         box-shadow: none;
-    } */
+    }
 
     @media only screen and (min-width: 320px) and (max-width: 812px) and (orientation: landscape) {
 
@@ -281,10 +283,6 @@
             font-size: 1.6rem;
         }
 
-        #gameArea {
-            column-gap: 10vw;
-        }
-
         #userOptionButtons {
             column-gap: 50px;
         }
@@ -316,6 +314,35 @@
         #userOptionButtons > button {
             font-size: 1.8rem;
             padding: 2.5vh;
+        }
+    }
+
+    @media only screen and (min-width: 1024px) {
+
+        #logoutButton {
+            display: none;
+        }
+
+        #desktopHeader {
+            display: grid;
+        }
+
+        #gameContainer {
+            margin-bottom: 10vh;
+        }
+
+        #gameArea {
+            column-gap: 10vw;
+        }
+
+        #userOptionButtons > button {
+            padding: 2vh;
+            cursor: pointer;
+        }
+
+        #userOptionButtons > button:hover {
+            background: white;
+            color: rgba(0, 0, 0, 0.8);
         }
     }
 </style>

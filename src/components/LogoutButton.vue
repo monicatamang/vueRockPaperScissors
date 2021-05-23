@@ -35,14 +35,6 @@
         cursor: pointer;
     }
 
-    /* button:hover {
-        box-shadow: 1px 1px 5px grey;
-    }
-
-    button:active {
-        box-shadow: none;
-    } */
-
     @media only screen and (min-width: 320px) and (max-width: 812px) and (orientation: landscape) {
 
         div {
@@ -59,6 +51,7 @@
         button {
             padding: 2vh;
             width: 60%;
+            margin-bottom: 5vh;
             font-size: 1.4rem;
         }
     }
@@ -73,6 +66,24 @@
             padding: 3vh;
             width: 60%;
             font-size: 1.4rem;
+        }
+    }
+
+    @media only screen and (min-width: 1024px) {
+        
+        button {
+            background: whitesmoke;
+            margin-top: 0vh;
+            padding: 0vh;
+            box-shadow: none;
+        }
+
+        button:hover {
+            font-weight: bold;
+        }
+
+        button:active {
+            box-shadow: none;
         }
     }
 </style>

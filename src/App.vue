@@ -15,12 +15,6 @@
           loginToken: cookies.get("RPSLoginToken")
         }
       },
-
-      // mounted () {
-      //   if (!this.loginToken) {
-      //     this.$router.push("/");
-      //   }
-      // },
     }
 </script>
 

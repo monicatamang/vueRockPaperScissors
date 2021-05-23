@@ -59,4 +59,11 @@
             width: 18vw;
         }
     }
+
+    @media only screen and (min-width: 1024px) {
+
+        img {
+            width: 15vw;
+        }
+    }
 </style>

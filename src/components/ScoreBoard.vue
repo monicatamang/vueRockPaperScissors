@@ -12,7 +12,7 @@
             </div>
             <div>
                 <h4>Tie</h4>
-                <p>{{ tiePoints }}</p>
+                <p>{{ userPoints.tiePoints }}</p>
             </div>
         </div>
     </article>
@@ -21,22 +21,13 @@
 <script>
     export default {
         name: "score-board",
+
         computed: {
             // Creating a function that gets the value of all the user's points
             userPoints: function() {
                 return this.$store.state.userScore;
-            },
-
-            // Creating a function that gets the value of all the computer's points
-            computerPoints: function() {
-                return this.$store.state.computerScore;
-            },
-
-            // Creating a function that gets the value of tie points
-            tiePoints: function() {
-                return this.$store.state.tiePoints;
             }
-        },
+        }
     }
 </script>
 
@@ -159,6 +150,21 @@
 
         #userScores > div {
             row-gap: 20px;
+        }
+    }
+
+    @media only screen and (min-width: 1024px) {
+
+        h1 {
+            padding: 2vh 0vh;
+        }
+
+        #scoreboardContainer {
+            width: 50vw;
+        }
+
+        #userScores {
+            padding: 3vh 0vh;
         }
     }
 </style>

@@ -1,5 +1,6 @@
 <template>
     <section>
+        <desktop-header id="desktopHeader"></desktop-header>
         <login-header></login-header>
         <main>
             <form action="javascript:void(0)">
@@ -14,8 +15,9 @@
 </template>
 
 <script>
-    import axios from "axios"
-    import cookies from "vue-cookies"
+    import axios from "axios";
+    import cookies from "vue-cookies";
+    import DesktopHeader from "../components/DesktopHeader.vue";
     import LoginHeader from "../components/LoginHeader.vue";
     import PageFooter from "../components/PageFooter.vue";
     
@@ -23,6 +25,7 @@
         name: "Login",
         
         components: {
+            DesktopHeader,
             LoginHeader,
             PageFooter
         },
@@ -64,6 +67,10 @@
 </script>
 
 <style scoped>
+    #desktopHeader {
+        display: none;
+    }
+
     section {
         display: grid;
         place-items: center;
@@ -156,7 +163,7 @@
     @media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
 
         form {
-            margin-top: 5vh;
+            margin-top: 10vh;
             width: 35vw;
         }
 
@@ -173,6 +180,28 @@
 
         p {
             font-size: 1.4rem;
+        }
+    }
+
+    @media only screen and (min-width: 1024px) {
+
+        #desktopHeader {
+            display: grid;
+        }
+
+        form {
+            margin-top: 5vh;
+            width: 30vw;
+        }
+
+        .userInputs {
+            padding: 1.5vh 0vh 1.5vh 1.5vh;
+        }
+
+        #loginButton {
+            font-size: 0.9rem;
+            padding: 3% 1%;
+            width: 25%;
         }
     }
 </style>

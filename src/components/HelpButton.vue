@@ -1,7 +1,7 @@
 <template>
     <div>
         <router-link to="/Rules">
-            <button><i class="far fa-question-circle"></i> Help</button>
+            <button id="helpButton"><i class="far fa-question-circle"></i> Help</button>
         </router-link>
     </div>
 </template>
@@ -58,6 +58,23 @@
             padding: 3vh;
             width: 15vw;
             font-size: 1.4rem;
+        }
+    }
+
+    @media only screen and (min-width: 1024px) {
+        
+        button {
+            position: fixed;
+            bottom: 5vh;
+            right: 5vh;
+        }
+
+        button:hover {
+            box-shadow: 1px 1px 5px grey;
+        }
+
+        button:active {
+            box-shadow: none;
         }
     }
 </style>

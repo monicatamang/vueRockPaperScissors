@@ -55,7 +55,7 @@
         }
 
         p {
-            font-size: 2rem;
+            font-size: 1.8rem;
         }
     }
 
@@ -68,6 +68,17 @@
 
         p {
             font-size: 2rem;
+        }
+    }
+
+    @media only screen and (min-width: 1024px) {
+
+        header {
+            margin-top: 20vh;
+        }
+
+        h1 {
+            display: none;
         }
     }
 </style>

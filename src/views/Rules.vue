@@ -212,4 +212,29 @@
             justify-items: start;
         }
     }
+
+    @media only screen and (min-width: 1024px) {
+        
+        button {
+            width: 15vw;
+            margin-left: 2vw;
+        }
+
+        button:hover {
+            box-shadow: 1px 1px 5px grey;
+        }
+
+        button:active {
+            box-shadow: none;
+        }
+
+        img {
+            width: 10vw;
+        }
+        
+        ol {
+            justify-items: start;
+            margin-left: 25vw;
+        }
+    }
 </style>

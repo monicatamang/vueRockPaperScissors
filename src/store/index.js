@@ -8,17 +8,11 @@ export default new Vuex.Store({
     // Creating an object of the user's score that initially starts at zero
     userScore: {
       winPoints: 0,
-      lossPoints: 0
-    },
-
-    // Creating an object of the computer's score that initially starts at zero
-    computerScore: {
-      winPoints: 0,
       lossPoints: 0,
+      tiePoints: 0
     },
-
     // Creating a variable that represents the number of ties in the game and initially setting it to zero
-    tiePoints: 0,
+    // tiePoints: 0,
 
     // Creating an array of each game option image data as objects
     rockPaperScissorsImages: [
@@ -63,19 +57,9 @@ export default new Vuex.Store({
       state.userScore.lossPoints++;
     },
 
-    // Creating a function that will increase the computer's win points by one point if the computer wins the game
-    updateComputerWinPoints: function(state) {
-      state.computerScore.winPoints++;
-    },
-
-    // Creating a function that will increase the computer's loss points by one point if the computer loses the game
-    updateComputerLossPoints: function(state) {
-      state.computerScore.lossPoints++;
-    },
-
     // Creating a function that will increase the number of ties by one point if the user and computer show the same options
     updateTiePoints: function(state) {
-      state.tiePoints++;
+      state.userScore.tiePoints++;
     },
 
     // Creating a function that will update the image source to the option the user has selected
