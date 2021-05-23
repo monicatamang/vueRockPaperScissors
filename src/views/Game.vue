@@ -1,6 +1,5 @@
 <template>
     <section>
-        <desktop-header id="desktopHeader"></desktop-header>
         <article id="gameContainer">
 
             <div id="noLoginTokenMessage" v-if="!RPSLoginToken">
@@ -9,6 +8,7 @@
             </div>
 
             <div v-else>
+                <desktop-header id="desktopHeader"></desktop-header>
                 <game-header></game-header>
                 <score-board></score-board>
                 <article id="gameArea">
@@ -80,14 +80,12 @@
                     this.$store.commit("updateComputerImageLink", this.RPSImages[randomNum].src);
                     this.$store.commit("updateComputerImageAlt", this.RPSImages[randomNum].alt);
                     this.$store.commit("updateUserLossPoints");
-                    this.$store.commit("updateComputerWinPoints");
                 }
 
                 else if (this.RPSImages[randomNum].option === "Scissors") {
                     this.$store.commit("updateComputerImageLink", this.RPSImages[randomNum].src);
                     this.$store.commit("updateComputerImageAlt", this.RPSImages[randomNum].alt);
                     this.$store.commit("updateUserWinPoints");
-                    this.$store.commit("updateComputerLossPoints");
                 }
             },
 
@@ -99,7 +97,6 @@
                     this.$store.commit("updateComputerImageLink", this.RPSImages[randomNum].src);
                     this.$store.commit("updateComputerImageAlt", this.RPSImages[randomNum].alt);
                     this.$store.commit("updateUserWinPoints");
-                    this.$store.commit("updateComputerLossPoints");
                 }
 
                 else if (this.RPSImages[randomNum].option === "Paper") {
@@ -112,7 +109,6 @@
                     this.$store.commit("updateComputerImageLink", this.RPSImages[randomNum].src);
                     this.$store.commit("updateComputerImageAlt", this.RPSImages[randomNum].alt);
                     this.$store.commit("updateUserLossPoints");
-                    this.$store.commit("updateComputerWinPoints");
                 }
             },
 
@@ -124,14 +120,12 @@
                     this.$store.commit("updateComputerImageLink", this.RPSImages[randomNum].src);
                     this.$store.commit("updateComputerImageAlt", this.RPSImages[randomNum].alt);
                     this.$store.commit("updateUserLossPoints");
-                    this.$store.commit("updateComputerWinPoints");
                 }
 
                 else if (this.RPSImages[randomNum].option === "Paper") {
                     this.$store.commit("updateComputerImageLink", this.RPSImages[randomNum].src);
                     this.$store.commit("updateComputerImageAlt", this.RPSImages[randomNum].alt);
                     this.$store.commit("updateUserWinPoints");
-                    this.$store.commit("updateComputerLossPoints");
                 }
 
                 else if (this.RPSImages[randomNum].option === "Scissors") {
@@ -318,6 +312,14 @@
     }
 
     @media only screen and (min-width: 1024px) {
+
+        #noLoginTokenMessage {
+            margin: 20vh 0vh 40vh 0vh;
+        }
+
+        #noLoginTokenMessage > p {
+            font-size: 1.2rem;
+        }
 
         #logoutButton {
             display: none;

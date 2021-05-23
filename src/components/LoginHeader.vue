@@ -28,6 +28,7 @@
         place-items: center;
         row-gap: 35px;
         padding: 0vh 5vh;
+        margin-top: 5vh;
     }
 
     h1 {
