@@ -7,7 +7,7 @@
 </template>
 
 <script>
-    import LogoutButton from "./LogoutButton.vue";
+    import LogoutButton from "../Buttons/LogoutButton.vue";
 
     export default {
         name: "desktop-game-header",
@@ -22,6 +22,7 @@
     header {
         position: fixed;
         top: 0;
+        left: 0;
         width: 100%;
         z-index: 1;
 

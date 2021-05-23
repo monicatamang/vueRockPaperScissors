@@ -28,9 +28,9 @@
             <h1>How to Play</h1>
             <ol>
                 <li id="stepOne">Select one of the three moves: Rock, Paper or Scissors.</li>
-                <li>If you selected "Rock" and the computer plays "Scissors", you will win one point.</li>
-                <li>If you selected "Paper" and the computer plays "Rock", you will win one point.</li>
-                <li>If you selected "Scissors" and the computer plays "Paper", you will win one point.</li>
+                <li>If you select "Rock" and the computer plays "Scissors", you win one point.</li>
+                <li>If you select "Paper" and the computer plays "Rock", you win one point.</li>
+                <li>If you select "Scissors" and the computer plays "Paper", you win one point.</li>
                 <li>If both you and the computer play with the same move, it will be counted as a tie.</li>
             </ol>
         </article>
@@ -42,12 +42,14 @@
         name: "Rules",
 
         methods: {
+            // Taking the user back to the game page
             gamePage() {
                 this.$router.go(-1);
             }
         },
 
         computed: {
+            // Getting the image of the user's selection from the store
             RPSImage() {
                 return this.$store.state.rockPaperScissorsImages; 
             }

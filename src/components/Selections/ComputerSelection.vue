@@ -1,27 +1,28 @@
 <template>
     <div>
-        <h1>You</h1>
-        <!-- Setting the image source and description to the values obtained from the store and displaying the user's option image to the game page -->
-        <img :src="userOptionImage.src" :alt="userOptionImage.alt">
+        <h1>Computer</h1>
+
+        <!-- Setting the image source and description to the values obtained from the store and displaying the image of the user's option to the game page -->
+        <img :src="computerOptionImage.src" :alt="computerOptionImage.alt">
     </div>
 </template>
 
 <script>
     export default {
-        name: "user-selection",
+        name: "computer-selection",
+
         computed: {
-            // Creating a function that gets the data of the user's option image from the store
-            userOptionImage: function() {
-                return this.$store.state.userSelectionImage;
+            // Getting the image of the computer's selection from the store
+            computerOptionImage() {
+                return this.$store.state.computerSelectionImage;
             }
-        },
+        }
     }
 </script>
 
 <style scoped>
-
     h1 {
-        font-size: 1.4rem;
+        font-size: 1.3rem;
         font-weight: 700;
     }
 
@@ -46,6 +47,10 @@
 
         h1 {
             font-size: 2.3rem;
+        }
+
+        img {
+            width: 25vw;
         }
     }
 

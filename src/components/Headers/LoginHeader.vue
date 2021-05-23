@@ -13,11 +13,13 @@
 <script>
     export default {
         name: "page-header",
+
         computed: {
+            // Getting the images of all the options from the store
             optionImages() {
                 return this.$store.state.rockPaperScissorsImages;
             }
-        },
+        }
     }
 </script>
 

@@ -5,27 +5,27 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    // Creating an object of the user's score that initially starts at zero
+    // Creating an object of the user's scores that initially starts at zero
     userScore: {
       winPoints: 0,
       lossPoints: 0,
       tiePoints: 0
     },
-    // Creating a variable that represents the number of ties in the game and initially setting it to zero
-    // tiePoints: 0,
 
-    // Creating an array of each game option image data as objects
+    // Creating an array of objects that contain the name of the option, the image's external link and description
     rockPaperScissorsImages: [
       {
         option: "Rock",
         src: "https://www.kindpng.com/picc/m/266-2667213_transparent-rock-paper-scissors-clipart-clipart-rock-paper.png",
         alt: "A clipart of a fist positioned to the left representing the symbol of a rock in the game 'rock, paper, scissors' that is styled with a white circular, black-bordered background."
       },
+
       {
         option: "Paper",
         src: "https://www.clipartkey.com/mpngs/m/109-1094264_rock-paper-scissors-png.png",
         alt: "A clipart of a open hand positioned to the left representing the symbol of a rock in the game 'rock, paper, scissors' that is styled with a white circular, black-bordered background."
       },
+
       {
         option: "Scissors",
         src: "https://www.clipartkey.com/mpngs/m/109-1094404_rock-paper-scissors-png.png",

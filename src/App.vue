@@ -5,16 +5,8 @@
 </template>
 
 <script>
-  import cookies from "vue-cookies";
-
     export default {
       name: "App",
-
-      data() {
-        return {
-          loginToken: cookies.get("RPSLoginToken")
-        }
-      },
     }
 </script>
 

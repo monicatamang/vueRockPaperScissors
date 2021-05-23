@@ -16,7 +16,7 @@
 <script>
     import axios from "axios";
     import cookies from "vue-cookies";
-    import LoginHeader from "../components/LoginHeader.vue";
+    import LoginHeader from "../components/Headers/LoginHeader.vue";
     import PageFooter from "../components/PageFooter.vue";
     
     export default {
@@ -36,11 +36,12 @@
         },
 
         methods: {
-
             userLogin: function() {
 
+                // Printing a loading message to the user
                 this.loginStatus = "Setting up the game...";
 
+                // Configuring an axios request with the type, url, email and password
                 axios.request({
                     url: "https://reqres.in/api/login",
                     method: "POST",
@@ -52,9 +53,11 @@
                         password: document.getElementById("userPassword").value
                     }
                 }).then((res) => {
+                    // If the network is done and there are no errors, set the user's login token as a cookies and take the user to the game page
                     cookies.set("RPSLoginToken", res.data.token);
                     this.$router.push('/Game');
                 }).catch((err) => {
+                    // If the network is done but the page errors, print an error message to the user
                     this.loginStatus = "Invalid email or password. Please try again.";
                     err;
                 });

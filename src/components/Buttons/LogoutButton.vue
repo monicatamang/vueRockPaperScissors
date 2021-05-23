@@ -11,6 +11,7 @@
         name: "logout-button",
 
         methods: {
+            // If the user is not logged in, prompt the user to return to the login page
             logoutUser: function() {
                 cookies.remove("RPSLoginToken");
                 this.$router.push('/');

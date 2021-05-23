@@ -23,8 +23,8 @@
         name: "score-board",
 
         computed: {
-            // Creating a function that gets the value of all the user's points
-            userPoints: function() {
+            // Getting the current user's scores from the store
+            userPoints() {
                 return this.$store.state.userScore;
             }
         }
@@ -35,7 +35,9 @@
     #scoreboardContainer {
         display: grid;
         place-items: center;
+        width: 100%;
         margin-top: 8vh;
+        box-shadow: 1px 1px 5px lightgrey;
     }
 
     #userScores {
@@ -44,7 +46,6 @@
         grid-template-columns: repeat(3, 1fr);
         background: white;
         padding: 2vh 0vh;
-        box-shadow: 1px 1px 5px lightgrey;
     }
 
     #userScores > div {
@@ -55,7 +56,7 @@
     }
 
     #userScores, h1 {
-        width: 95%;
+        width: 100%;
     }
 
     h1 {
@@ -63,7 +64,6 @@
         padding: 1vh 0vh;
         color: whitesmoke;
         background: rgba(0, 0, 0, 0.8);
-        box-shadow: 1px 1px 5px lightgrey;
     }
 
     h4, p {
@@ -76,14 +76,6 @@
 
     @media only screen and (min-width: 320px) and (max-width: 812px) and (orientation: landscape) {
 
-        #scoreboardContainer {
-            margin-top: 15vh;
-        }
-
-        #userScores, h1 {
-            width: 100%;
-        }
-
         #userScores {
             padding: 3vh 0vh;
         }
@@ -94,10 +86,6 @@
     }
 
     @media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
-
-        #userScores, h1 {
-            width: 60vw;
-        }
 
         h1 {
             font-size: 1.6rem;
@@ -127,10 +115,6 @@
             margin-top: 10vh;
         }
 
-        #userScores, h1 {
-            width: 50vw;
-        }
-
         h1 {
             font-size: 1.6rem;
             padding: 2vh 0vh;
@@ -157,10 +141,6 @@
 
         h1 {
             padding: 2vh 0vh;
-        }
-
-        #scoreboardContainer {
-            width: 50vw;
         }
 
         #userScores {

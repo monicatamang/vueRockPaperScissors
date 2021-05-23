@@ -31,13 +31,13 @@
 
 <script>
     import cookies from "vue-cookies";
-    import DesktopGameHeader from "../components/DesktopGameHeader.vue";
-    import HelpButton from "../components/HelpButton.vue";
-    import GameHeader from "../components/GameHeader.vue";
-    import UserSelection from "../components/UserSelection.vue";
-    import ComputerSelection from "../components/ComputerSelection.vue";
+    import DesktopGameHeader from "../components/Headers/DesktopGameHeader.vue";
+    import HelpButton from "../components/Buttons/HelpButton.vue";
+    import GameHeader from "../components/Headers/GameHeader.vue";
+    import UserSelection from "../components/Selections/UserSelection.vue";
+    import ComputerSelection from "../components/Selections/ComputerSelection.vue";
     import ScoreBoard from "../components/ScoreBoard.vue";
-    import LogoutButton from "../components/LogoutButton.vue";
+    import LogoutButton from "../components/Buttons/LogoutButton.vue";
     import PageFooter from "../components/PageFooter.vue";
 
     export default {
@@ -61,27 +61,31 @@
         },
 
         methods: {
-            
+            // If the user does not have a login token, take the user to the login page
             takeUserToLoginPage() {
                 this.$router.push('/');
             },
 
             userSelectedRock() {
-
+                
+                // Generating a random number from 0 to 2 and assigning that value as a variable
                 let randomNum = Math.floor(Math.random() * this.RPSImages.length);
 
+                // If the computer generates "Rock", set the image of computer's selection to "Rock", update it to the store and increase the number of tie points by one point
                 if(this.RPSImages[randomNum].option === "Rock") {
                     this.$store.commit("updateComputerImageLink", this.RPSImages[randomNum].src);
                     this.$store.commit("updateComputerImageAlt", this.RPSImages[randomNum].alt);
                     this.$store.commit("updateTiePoints");
                 }
 
+                // If the computer generates "Paper", set the image of computer's selection to "Paper", update it to the store and increase the user's loss points by one point
                 else if (this.RPSImages[randomNum].option === "Paper") {
                     this.$store.commit("updateComputerImageLink", this.RPSImages[randomNum].src);
                     this.$store.commit("updateComputerImageAlt", this.RPSImages[randomNum].alt);
                     this.$store.commit("updateUserLossPoints");
                 }
 
+                // If the computer generates "Scissors", set the image of computer's selection to "Scissors", update it to the store and increase the user's win points by one point
                 else if (this.RPSImages[randomNum].option === "Scissors") {
                     this.$store.commit("updateComputerImageLink", this.RPSImages[randomNum].src);
                     this.$store.commit("updateComputerImageAlt", this.RPSImages[randomNum].alt);
@@ -91,20 +95,24 @@
 
             userSelectedPaper() {
                 
+                // Generating a random number from 0 to 2 and assigning that value as a variable
                 let randomNum = Math.floor(Math.random() * this.RPSImages.length);
 
+                // If the computer generates "Rock", set the image of computer's selection to "Rock", update it to the store and increase the user's win points by one point
                 if (this.RPSImages[randomNum].option === "Rock") {
                     this.$store.commit("updateComputerImageLink", this.RPSImages[randomNum].src);
                     this.$store.commit("updateComputerImageAlt", this.RPSImages[randomNum].alt);
                     this.$store.commit("updateUserWinPoints");
                 }
 
+                // If the computer generates "Paper", set the image of computer's selection to "Paper", update it to the store and increase the number of tie points by one point
                 else if (this.RPSImages[randomNum].option === "Paper") {
                     this.$store.commit("updateComputerImageLink", this.RPSImages[randomNum].src);
                     this.$store.commit("updateComputerImageAlt", this.RPSImages[randomNum].alt);
                     this.$store.commit("updateTiePoints");
                 }
 
+                // If the computer generates "Scissors", set the image of computer's selection to "Scissors", update it to the store and increase user's loss points by one point
                 else if (this.RPSImages[randomNum].option === "Scissors") {
                     this.$store.commit("updateComputerImageLink", this.RPSImages[randomNum].src);
                     this.$store.commit("updateComputerImageAlt", this.RPSImages[randomNum].alt);
@@ -114,20 +122,24 @@
 
             userSelectedScissors() {
                 
+                // Generating a random number from 0 to 2 and assigning that value as a variable
                 let randomNum = Math.floor(Math.random() * this.RPSImages.length);
 
+                // If the computer generates "Rock", set the image of computer's selection to "Rock", update it to the store and increase user's loss points by one point
                 if (this.RPSImages[randomNum].option === "Rock") {
                     this.$store.commit("updateComputerImageLink", this.RPSImages[randomNum].src);
                     this.$store.commit("updateComputerImageAlt", this.RPSImages[randomNum].alt);
                     this.$store.commit("updateUserLossPoints");
                 }
 
+                // If the computer generates "Paper", set the image of computer's selection to "Paper", update it to the store and increase user's win points by one point
                 else if (this.RPSImages[randomNum].option === "Paper") {
                     this.$store.commit("updateComputerImageLink", this.RPSImages[randomNum].src);
                     this.$store.commit("updateComputerImageAlt", this.RPSImages[randomNum].alt);
                     this.$store.commit("updateUserWinPoints");
                 }
 
+                // If the computer generates "Scissors", set the image of computer's selection to "Scissors", update it to the store and increase the tie points by one point
                 else if (this.RPSImages[randomNum].option === "Scissors") {
                     this.$store.commit("updateComputerImageLink", this.RPSImages[randomNum].src);
                     this.$store.commit("updateComputerImageAlt", this.RPSImages[randomNum].alt);
@@ -155,6 +167,7 @@
 
                 for (let i = 0; i < this.RPSImages.length; i++) {
 
+                    // If the user's selects either "Rock", "Paper" or "Scissors", update the user's selection to the store and call the computerTurn function with the user's selection as an arguement
                     if (selection === this.RPSImages[i].option) {
                         this.$store.commit("updateUserImageLink", this.RPSImages[i].src);
                         this.$store.commit("updateUserImageAlt", this.RPSImages[i].alt);
@@ -165,6 +178,7 @@
         },
 
         computed: {
+            // Getting the image of the user's selection from the store
             RPSImages: function() {
                 return this.$store.state.rockPaperScissorsImages;
             }
@@ -277,12 +291,16 @@
             font-size: 1.6rem;
         }
 
+        #gameArea {
+            column-gap: 15vw;
+        }
+
         #userOptionButtons {
             column-gap: 50px;
         }
 
         #userOptionButtons > button {
-            font-size: 1.7rem;
+            font-size: 1.5rem;
         }
     }
 
@@ -340,11 +358,6 @@
         #userOptionButtons > button {
             padding: 2vh;
             cursor: pointer;
-        }
-
-        #userOptionButtons > button:hover {
-            background: white;
-            color: rgba(0, 0, 0, 0.8);
         }
     }
 </style>
