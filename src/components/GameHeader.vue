@@ -31,4 +31,20 @@
     p {
         font-size: 1.1rem;
     }
+
+    @media only screen and (min-width: 320px) and (max-width: 812px) and (orientation: landscape) { 
+        
+        header {
+            margin-top: 15vh;
+        }
+
+        h1 {
+            font-size: 1.8rem;
+            padding-bottom: 5vh;
+        }
+
+        p {
+            font-size: 1rem;
+        }
+    }
 </style>

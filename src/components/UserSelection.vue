@@ -30,4 +30,15 @@
         margin-top: 3vh;
         transform: rotate(90deg);
     }
+
+    @media only screen and (min-width: 320px) and (max-width: 812px) and (orientation: landscape) {
+
+        h1 {
+            margin-bottom: 5vh;
+        }
+
+        img {
+            width: 10vw;
+        }
+    }
 </style>

@@ -116,4 +116,21 @@
     #loginButton:active {
         box-shadow: none;
     }
+
+    @media only screen and (min-width: 320px) and (max-width: 812px) and (orientation: landscape) {
+        
+        section {
+            row-gap: 50px;
+        }
+
+        form {
+            width: 30vw;
+        }
+
+        #loginButton {
+            font-size: 0.8rem;
+            padding: 3% 1%;
+            width: 40%;
+        }
+    }
 </style>

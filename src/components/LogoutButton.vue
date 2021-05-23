@@ -28,18 +28,29 @@
         color: rgba(0, 0, 0, 0.8);
         border-radius: 3px;
         border: none;
-        width: 65%;
+        width: 85%;
         margin-top: 10vh;
         padding: 1.5vh;
         box-shadow: 1px 1px 5px lightgrey;
         cursor: pointer;
     }
 
-    button:hover {
+    /* button:hover {
         box-shadow: 1px 1px 5px grey;
     }
 
     button:active {
         box-shadow: none;
+    } */
+
+    @media only screen and (min-width: 320px) and (max-width: 812px) and (orientation: landscape) {
+
+        div {
+            margin-bottom: 10vh;
+        }
+
+        button {
+            padding: 2vh;
+        }
     }
 </style>

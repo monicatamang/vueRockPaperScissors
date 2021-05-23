@@ -2,9 +2,9 @@
     <section>
         <article id="gameContainer">
 
-            <div v-if="!RPSLoginToken">
-                <p>You are not logged in. Please go back to the login page.</p>
-                <button id="backButton" @click="takeUserToLoginPage">Login Page</button>
+            <div id="noLoginTokenMessage" v-if="!RPSLoginToken">
+                <p>You are not logged in. To continue playing, please return to the login page.</p>
+                <button id="backButton" @click="takeUserToLoginPage">Back to Login Page</button>
             </div>
 
             <div v-else>
@@ -168,7 +168,6 @@
         },
 
         computed: {
-
             RPSImages: function() {
                 return this.$store.state.rockPaperScissorsImages;
             }
@@ -177,12 +176,19 @@
 </script>
 
 <style scoped>
+    #noLoginTokenMessage {
+        display: grid;
+        place-items: center;
+        margin-top: 10vh;
+        width: 80vw;
+    }
+
     #backButton {
         font-family: 'Quicksand', sans-serif;
         font-weight: 600;
         color: whitesmoke;
         background: rgba(0, 0, 0, 0.8);
-        margin-top: 5vh;
+        margin: 5vh 0vh 60vh 0vh;
         border-radius: 3px;
         border: none;
         padding: 1.5vh;
@@ -233,11 +239,34 @@
         cursor: pointer;
     }
 
-    #userOptionButtons > button:hover {
+    /* #userOptionButtons > button:hover {
         box-shadow: 1px 1px 5px grey;
     }
 
     #userOptionButtons > button:active {
         box-shadow: none;
+    } */
+
+    @media only screen and (min-width: 320px) and (max-width: 812px) and (orientation: landscape) {
+
+        #noLoginTokenMessage {
+            display: grid;
+            place-items: center;
+            margin-top: 20vh;
+            width: 80vw;
+        }
+
+        #backButton {
+            padding: 3vh;
+            margin: 10vh 0vh 35vh 0vh;
+        }
+
+        #gameArea {
+            margin: 15vh 0vh 10vh 0vh;
+        }
+
+        #userOptionButtons > button {
+            padding: 2vh;
+        }
     }
 </style>

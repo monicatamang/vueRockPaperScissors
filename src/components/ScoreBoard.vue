@@ -52,7 +52,6 @@
         place-items: center;
         grid-template-columns: repeat(3, 1fr);
         background: white;
-        width: 95%;
         padding: 2vh 0vh;
         box-shadow: 1px 1px 5px lightgrey;
     }
@@ -64,12 +63,15 @@
         background: white;
     }
 
+    #userScores, h1 {
+        width: 95%;
+    }
+
     h1 {
         font-weight: 600;
         padding: 1vh 0vh;
         color: whitesmoke;
         background: rgba(0, 0, 0, 0.8);
-        width: 95%;
         box-shadow: 1px 1px 5px lightgrey;
     }
 
@@ -79,5 +81,24 @@
 
     p {
         font-size: 1.2rem;
+    }
+
+    @media only screen and (min-width: 320px) and (max-width: 812px) and (orientation: landscape) {
+
+        #scoreboardContainer {
+            margin-top: 15vh;
+        }
+
+        #userScores, h1 {
+            width: 100%;
+        }
+
+        #userScores {
+            padding: 3vh 0vh;
+        }
+
+        h1 {
+            padding: 2vh 0vh;
+        }
     }
 </style>

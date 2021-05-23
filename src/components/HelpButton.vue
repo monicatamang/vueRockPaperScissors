@@ -26,4 +26,16 @@
         box-shadow: 1px 1px 5px lightgrey;
         cursor: pointer;
     }
+
+    @media only screen and (min-width: 320px) and (max-width: 812px) and (orientation: landscape) {
+
+        div {
+            margin: 15vh 0vh;
+        }
+
+        button {
+            padding: 2vh;
+            width: 10vw;
+        }
+    }
 </style>

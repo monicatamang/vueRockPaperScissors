@@ -35,7 +35,7 @@
 
     p {
         font-size: 0.9rem;
-        color: darkgray;
+        color: rgba(0, 0, 0, 0.6);
     }
 
     #imageContainer {
@@ -52,5 +52,30 @@
 
     #rock, #scissors {
         transform: rotate(90deg);
+    }
+
+    @media only screen and (min-width: 320px) and (max-width: 812px) and (orientation: landscape) {
+        
+        header {
+            margin-top: 10vh;
+            row-gap: 25px;
+        }
+
+
+        #imageContainer {
+            width: 30%;
+        }
+
+        img {
+            width: 80%;
+        }   
+
+        h1 {
+            font-size: 1.5rem;
+        }
+
+        p {
+            font-size: 0.8rem;
+        }
     }
 </style>

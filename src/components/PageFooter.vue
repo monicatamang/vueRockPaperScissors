@@ -18,4 +18,11 @@
         padding: 3vh 0vh;
         font-size: 0.9rem;
     }
+
+    @media only screen and (min-width: 320px) and (max-width: 812px) and (orientation: landscape) {
+        
+        footer {
+            margin-bottom: 10vh;
+        }
+    }
 </style>

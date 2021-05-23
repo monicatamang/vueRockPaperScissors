@@ -27,7 +27,7 @@
         <article>
             <h1>How to Play</h1>
             <ol>
-                <li>Select one of the three moves: Rock, Paper or Scissors.</li>
+                <li id="stepOne">Select one of the three moves: Rock, Paper or Scissors.</li>
                 <li>If you selected "Rock" and the computer plays "Scissors", you will win one point.</li>
                 <li>If you selected "Paper" and the computer plays "Rock", you will win one point.</li>
                 <li>If you selected "Scissors" and the computer plays "Paper", you will win one point.</li>
@@ -115,5 +115,25 @@
         padding: 1.5vh;
         box-shadow: 1px 1px 5px lightgrey;
         cursor: pointer;
+    }
+
+    @media only screen and (min-width: 320px) and (max-width: 812px) and (orientation: landscape) {
+
+        section {
+            margin: 5vh 0vh 15vh 0vh;
+        }
+
+        button {
+            width: 20vw;
+            margin-left: 2vw;
+        }
+
+        img {
+            width: 10vw;
+        }
+
+        #stepOne {
+            justify-self: start;
+        }
     }
 </style>
