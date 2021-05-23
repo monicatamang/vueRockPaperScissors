@@ -271,7 +271,7 @@
         }
     }
 
-    @media only screen and (min-width: 768px) and (max-width: 1366px) and (orientation: portrait) {
+    @media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
 
         #noLoginTokenMessage > p {
             font-size: 2rem;
@@ -294,7 +294,7 @@
         }
     }
 
-    @media only screen and (min-width: 768px) and (max-width: 1366px) and (orientation: landscape) {
+    @media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
 
         #noLoginTokenMessage {
             margin: 15vh 0vh 40vh 0vh;
@@ -315,6 +315,7 @@
 
         #userOptionButtons > button {
             font-size: 1.8rem;
+            padding: 2.5vh;
         }
     }
 </style>

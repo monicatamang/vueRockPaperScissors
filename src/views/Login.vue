@@ -134,7 +134,7 @@
         }
     }
 
-    @media only screen and (min-width: 768px) and (max-width: 1366px) and (orientation: portrait) {
+    @media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
 
         .userInputs {
             width: 60vw;
@@ -153,7 +153,7 @@
         }
     }
 
-    @media only screen and (min-width: 768px) and (max-width: 1366px) and (orientation: landscape) {
+    @media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
 
         form {
             margin-top: 5vh;

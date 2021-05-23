@@ -39,24 +39,24 @@
         }
     }
 
-    @media only screen and (min-width: 768px) and (max-width: 1366px) and (orientation: portrait) {
+    @media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
 
         button {
             padding: 2vh;
-            width: 15vw;
+            width: 20vw;
             font-size: 1.4rem;
         }
     }
 
-    @media only screen and (min-width: 768px) and (max-width: 1366px) and (orientation: landscape) {
+    @media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
 
         div {
             margin: 5vh 0vh;
         }
 
         button {
-            padding: 2vh;
-            width: 10vw;
+            padding: 3vh;
+            width: 15vw;
             font-size: 1.4rem;
         }
     }

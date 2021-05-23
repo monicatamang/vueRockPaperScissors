@@ -76,7 +76,7 @@
         }
     }
 
-    @media only screen and (min-width: 768px) and (max-width: 1366px) and (orientation: portrait) {
+    @media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
 
         header {
             margin-top: 5vh;
@@ -97,11 +97,11 @@
 
         p {
             font-size: 1.7rem;
-            padding: 0vw 15vw;
+            padding: 0vw 5vw;
         }
     }
 
-    @media only screen and (min-width: 768px) and (max-width: 1366px) and (orientation: landscape) {
+    @media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
 
         header {
             margin-top: 5vh;
@@ -118,6 +118,13 @@
 
         p {
             font-size: 1.5rem;
+        }
+    }
+
+    @media only screen and (min-width: 1024) {
+
+        img {
+            width: 40%;
         }
     }
 </style>

@@ -39,14 +39,14 @@
         }
     }
 
-    @media only screen and (min-width: 768px) and (max-width: 1366px) and (orientation: portrait) {
+    @media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
 
         h1 {
             font-size: 2.3rem;
         }
     }
 
-    @media only screen and (min-width: 768px) and (max-width: 1366px) and (orientation: landscape) {
+    @media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
 
         h1 {
             font-size: 2.5rem;

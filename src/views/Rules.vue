@@ -137,14 +137,14 @@
         }
     }
 
-    @media only screen and (min-width: 768px) and (max-width: 1366px) and (orientation: portrait) {
+    @media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
 
         section {
-            row-gap: 5vh;
+            row-gap: 8vh;
         }
 
         article {
-            row-gap: 3vh;
+            row-gap: 4vh;
         }
 
         #legend {
@@ -152,7 +152,7 @@
         }
 
         button {
-            width: 25vw;
+            width: 30vw;
             margin-left: 2vw;
             font-size: 1.3rem;
         }
@@ -162,7 +162,7 @@
         }
 
         p, li {
-            font-size: 1.8rem;
+            font-size: 1.5rem;
         }
 
         ol {
@@ -174,14 +174,14 @@
         }
     }
 
-    @media only screen and (min-width: 768px) and (max-width: 1366px) and (orientation: landscape) {
+    @media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
 
         section {
-            row-gap: 7vh;
+            row-gap: 10vh;
         }
 
         article {
-            row-gap: 3vh;
+            row-gap: 5vh;
         }
 
         #legend {
