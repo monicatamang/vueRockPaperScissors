@@ -1,9 +1,28 @@
 <template>
   <div id="app">
-    <!-- Showing the user which page they're currently viewing  -->
     <router-view/>
   </div>
 </template>
+
+<script>
+  import cookies from "vue-cookies";
+
+    export default {
+      name: "App",
+
+      data() {
+        return {
+          loginToken: cookies.get("RPSLoginToken")
+        }
+      },
+
+      // mounted () {
+      //   if (!this.loginToken) {
+      //     this.$router.push("/");
+      //   }
+      // },
+    }
+</script>
 
 <style>
 #app {
@@ -11,11 +30,11 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  background: whitesmoke;
 }
 
 * {
   margin: 0;
   padding: 0;
+  background: whitesmoke;
 }
 </style>

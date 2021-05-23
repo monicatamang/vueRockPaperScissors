@@ -21,10 +21,12 @@
     
     export default {
         name: "Login",
+        
         components: {
             LoginHeader,
             PageFooter
         },
+
         data: function() {
             return {
                 isLoading: false,
@@ -32,6 +34,7 @@
                 RPSLoginToken: cookies.get("RPSLoginToken")
             }
         },
+
         methods: {
 
             userLogin: function() {
@@ -84,6 +87,8 @@
         font-family: 'Quicksand', sans-serif;
         padding: 1vh 0vh 1vh 1vh;
         width: 100%;
+        border: 0.5px solid rgba(0, 0, 0, 0.8);
+        background: white;
     }
 
     .userInputs:focus {
@@ -93,7 +98,6 @@
     #loginButton {
         font-family: 'Quicksand', sans-serif;
         font-size: 1rem;
-        letter-spacing: 1px;
         font-weight: bold;
         color: whitesmoke;
         background: rgba(0, 0, 0, 0.8);

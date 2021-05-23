@@ -15,6 +15,7 @@
         display: grid;
         place-items: center;
         min-height: 5vh;
+        padding: 3vh 0vh;
         font-size: 0.9rem;
     }
 </style>

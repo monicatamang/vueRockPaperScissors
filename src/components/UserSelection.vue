@@ -21,13 +21,13 @@
 <style scoped>
 
     h1 {
-        font-size: 2rem;
-        font-weight: 500;
+        font-size: 1.4rem;
+        font-weight: 700;
     }
 
     img {
-        width: 15vw;
-        margin: 5vh 0vh;
+        width: 20vw;
+        margin-top: 3vh;
         transform: rotate(90deg);
     }
 </style>

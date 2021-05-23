@@ -11,17 +11,18 @@
                 <game-header></game-header>
                 <score-board></score-board>
                 <article id="gameArea">
-                    <div>
-                        <user-selection></user-selection>
-                        <div id="userOptionButtons">
-                            <button @click="userTurn(`Rock`)">Rock</button>
-                            <button @click="userTurn(`Paper`)">Paper</button>
-                            <button @click="userTurn(`Scissors`)">Scissors</button>
-                        </div>
-                    </div>
+                    <user-selection></user-selection>
                     <computer-selection></computer-selection>
                 </article>
+                <div id="userOptionButtons">
+                    <button @click="userTurn(`Rock`)">Rock</button>
+                    <button @click="userTurn(`Paper`)">Paper</button>
+                    <button @click="userTurn(`Scissors`)">Scissors</button>
+                </div>
+                <help-button></help-button>
+                <logout-button></logout-button>
             </div>
+
         </article>
         <page-footer></page-footer>
     </section>
@@ -29,19 +30,24 @@
 
 <script>
     import cookies from "vue-cookies";
+    import HelpButton from "../components/HelpButton.vue";
     import GameHeader from "../components/GameHeader.vue";
     import UserSelection from "../components/UserSelection.vue";
     import ComputerSelection from "../components/ComputerSelection.vue";
     import ScoreBoard from "../components/ScoreBoard.vue";
+    import LogoutButton from "../components/LogoutButton.vue";
     import PageFooter from "../components/PageFooter.vue";
 
     export default {
         name: "Game",
+
         components: {
             GameHeader,
+            HelpButton,
             UserSelection,
             ComputerSelection,
             ScoreBoard,
+            LogoutButton,
             PageFooter
         },
 
@@ -194,16 +200,12 @@
     #gameContainer {
         display: grid;
         place-items: center;
-        min-height: 100vh;
     }
     #gameArea {
         display: grid;
         place-items: center;
-        grid-template-columns: repeat(2, 1fr);
-        column-gap: 50px;
-        width: 100%;
-        min-height: 60vh;
-        margin: 10vh 0vh;
+        grid-template-columns: auto auto;
+        margin: 10vh 0vh 8vh 0vh;
     }
 
     #gameArea > div {
@@ -218,15 +220,16 @@
     }
 
     #userOptionButtons > button {
+        font-size: 0.9rem;
         font-family: 'Quicksand', sans-serif;
         font-weight: 600;
-        font-size: 1.1rem;
         color: whitesmoke;
         background: rgba(0, 0, 0, 0.8);
         border-radius: 3px;
         border: none;
         width: 100%;
         padding: 1.5vh;
+        box-shadow: 1px 1px 5px lightgrey;
         cursor: pointer;
     }
 

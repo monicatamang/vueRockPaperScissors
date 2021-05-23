@@ -1,12 +1,12 @@
 <template>
     <header>
         <div id="imageContainer">
-            <img id="rock" :src="optionImages[0].rockSrc" :alt="optionImages[0].rockAlt">
-            <img id="paper" :src="optionImages[1].paperSrc" :alt="optionImages[1].paperAlt">
-            <img id="scissors" :src="optionImages[2].scissorsSrc" :alt="optionImages[2].scissorsAlt">
+            <img id="rock" :src="optionImages[0].src" :alt="optionImages[0].alt">
+            <img id="paper" :src="optionImages[1].src" :alt="optionImages[1].alt">
+            <img id="scissors" :src="optionImages[2].src" :alt="optionImages[2].alt">
         </div>
         <h1>Rock Paper Scissors</h1>
-        <p>Please use eve.holt@reqres.in for the email. The password can be anything you like.</p>
+        <p>Please use eve.holt@reqres.in as the email. The password can be anything you like.</p>
     </header>
 </template>
 
