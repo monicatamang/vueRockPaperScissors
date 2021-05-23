@@ -3,7 +3,7 @@
         <article id="gameContainer">
 
             <div id="noLoginTokenMessage" v-if="!RPSLoginToken">
-                <p>You are not logged in. To continue playing, please return to the login page.</p>
+                <p>You are not logged in. To continue playing, please log into your account.</p>
                 <button id="backButton" @click="takeUserToLoginPage">Back to Login Page</button>
             </div>
 
@@ -179,7 +179,7 @@
     #noLoginTokenMessage {
         display: grid;
         place-items: center;
-        margin-top: 10vh;
+        margin: 10vh 0vh 60vh 0vh;
         width: 80vw;
     }
 
@@ -188,7 +188,7 @@
         font-weight: 600;
         color: whitesmoke;
         background: rgba(0, 0, 0, 0.8);
-        margin: 5vh 0vh 60vh 0vh;
+        margin-top: 5vh;
         border-radius: 3px;
         border: none;
         padding: 1.5vh;
@@ -207,6 +207,7 @@
         display: grid;
         place-items: center;
     }
+
     #gameArea {
         display: grid;
         place-items: center;
@@ -252,13 +253,13 @@
         #noLoginTokenMessage {
             display: grid;
             place-items: center;
-            margin-top: 20vh;
+            margin: 20vh 0vh 35vh 0vh;
             width: 80vw;
         }
 
         #backButton {
             padding: 3vh;
-            margin: 10vh 0vh 35vh 0vh;
+            margin-top: 10vh;
         }
 
         #gameArea {
@@ -267,6 +268,53 @@
 
         #userOptionButtons > button {
             padding: 2vh;
+        }
+    }
+
+    @media only screen and (min-width: 768px) and (max-width: 1366px) and (orientation: portrait) {
+
+        #noLoginTokenMessage > p {
+            font-size: 2rem;
+        }
+
+        #backButton {
+            font-size: 1.6rem;
+        }
+
+        #gameArea {
+            column-gap: 10vw;
+        }
+
+        #userOptionButtons {
+            column-gap: 50px;
+        }
+
+        #userOptionButtons > button {
+            font-size: 1.7rem;
+        }
+    }
+
+    @media only screen and (min-width: 768px) and (max-width: 1366px) and (orientation: landscape) {
+
+        #noLoginTokenMessage {
+            margin: 15vh 0vh 40vh 0vh;
+        }
+
+        #noLoginTokenMessage > p {
+            font-size: 2rem;
+        }
+
+        #backButton {
+            font-size: 1.6rem;
+        }
+
+        #gameArea {
+            column-gap: 10vw;
+            margin: 10vh 0vh;
+        }
+
+        #userOptionButtons > button {
+            font-size: 1.8rem;
         }
     }
 </style>

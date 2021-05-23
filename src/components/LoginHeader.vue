@@ -48,9 +48,6 @@
 
     img {
         width: 80%;
-    }
-
-    #rock, #scissors {
         transform: rotate(90deg);
     }
 
@@ -76,6 +73,51 @@
 
         p {
             font-size: 0.8rem;
+        }
+    }
+
+    @media only screen and (min-width: 768px) and (max-width: 1366px) and (orientation: portrait) {
+
+        header {
+            margin-top: 5vh;
+            row-gap: 50px
+        }
+
+        #imageContainer {
+            width: 80%;
+        }
+
+        img {
+            width: 60%;
+        }
+
+        h1 {
+            font-size: 3.8rem;
+        }
+
+        p {
+            font-size: 1.7rem;
+            padding: 0vw 15vw;
+        }
+    }
+
+    @media only screen and (min-width: 768px) and (max-width: 1366px) and (orientation: landscape) {
+
+        header {
+            margin-top: 5vh;
+            row-gap: 50px;
+        }
+
+        #imageContainer {
+            width: 40%;
+        }
+
+        h1 {
+            font-size: 3rem;
+        }
+
+        p {
+            font-size: 1.5rem;
         }
     }
 </style>

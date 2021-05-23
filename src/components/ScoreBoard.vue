@@ -101,4 +101,64 @@
             padding: 2vh 0vh;
         }
     }
+
+    @media only screen and (min-width: 768px) and (max-width: 1366px) and (orientation: portrait) {
+
+        #userScores, h1 {
+            width: 60vw;
+        }
+
+        h1 {
+            font-size: 1.6rem;
+            padding: 1.5vh 0vh;
+        }
+
+        #userScores {
+            padding: 3vh 0vh;
+        }
+
+        h4 {
+            font-size: 1.6rem;
+        }
+
+        p {
+            font-size: 2rem;
+        }
+
+        #userScores > div {
+            row-gap: 20px;
+        }
+    }
+
+    @media only screen and (min-width: 768px) and (max-width: 1366px) and (orientation: landscape) {
+
+        #scoreboardContainer {
+            margin-top: 10vh;
+        }
+
+        #userScores, h1 {
+            width: 50vw;
+        }
+
+        h1 {
+            font-size: 1.6rem;
+            padding: 2vh 0vh;
+        }
+
+        #userScores {
+            padding: 4vh 0vh;
+        }
+
+        h4 {
+            font-size: 1.6rem;
+        }
+
+        p {
+            font-size: 2rem;
+        }
+
+        #userScores > div {
+            row-gap: 20px;
+        }
+    }
 </style>

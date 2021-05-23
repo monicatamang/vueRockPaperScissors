@@ -133,4 +133,46 @@
             width: 40%;
         }
     }
+
+    @media only screen and (min-width: 768px) and (max-width: 1366px) and (orientation: portrait) {
+
+        .userInputs {
+            width: 60vw;
+            padding: 2vh 0vh 2vh 2vh;
+            font-size: 1.5rem;
+        }
+
+        #loginButton {
+            font-size: 1.5rem;
+            padding: 3% 1%;
+            width: 30%;
+        }
+
+        p {
+            font-size: 1.6rem;
+        }
+    }
+
+    @media only screen and (min-width: 768px) and (max-width: 1366px) and (orientation: landscape) {
+
+        form {
+            margin-top: 5vh;
+            width: 35vw;
+        }
+
+        .userInputs {
+            padding: 2vh 0vh 2vh 2vh;
+            font-size: 1.4rem;
+        }
+
+        #loginButton {
+            font-size: 1.6rem;
+            padding: 3% 1%;
+            width: 30%;
+        }
+
+        p {
+            font-size: 1.4rem;
+        }
+    }
 </style>

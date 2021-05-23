@@ -38,4 +38,26 @@
             width: 10vw;
         }
     }
+
+    @media only screen and (min-width: 768px) and (max-width: 1366px) and (orientation: portrait) {
+
+        button {
+            padding: 2vh;
+            width: 15vw;
+            font-size: 1.4rem;
+        }
+    }
+
+    @media only screen and (min-width: 768px) and (max-width: 1366px) and (orientation: landscape) {
+
+        div {
+            margin: 5vh 0vh;
+        }
+
+        button {
+            padding: 2vh;
+            width: 10vw;
+            font-size: 1.4rem;
+        }
+    }
 </style>

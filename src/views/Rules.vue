@@ -136,4 +136,80 @@
             justify-self: start;
         }
     }
+
+    @media only screen and (min-width: 768px) and (max-width: 1366px) and (orientation: portrait) {
+
+        section {
+            row-gap: 5vh;
+        }
+
+        article {
+            row-gap: 3vh;
+        }
+
+        #legend {
+            column-gap: 5vw;
+        }
+
+        button {
+            width: 25vw;
+            margin-left: 2vw;
+            font-size: 1.3rem;
+        }
+
+        h1 {
+            font-size: 3rem;
+        }
+
+        p, li {
+            font-size: 1.8rem;
+        }
+
+        ol {
+            width: 80vw;
+        }
+
+        #stepOne {
+            justify-self: start;
+        }
+    }
+
+    @media only screen and (min-width: 768px) and (max-width: 1366px) and (orientation: landscape) {
+
+        section {
+            row-gap: 7vh;
+        }
+
+        article {
+            row-gap: 3vh;
+        }
+
+        #legend {
+            row-gap: 5vh;
+            column-gap: 5vw;
+        }
+
+        button {
+            width: 20vw;
+            margin-left: 2vw;
+            font-size: 1.3rem;
+        }
+
+        img {
+            width: 12vw;
+        }
+
+        h1 {
+            font-size: 3rem;
+        }
+
+        p, li {
+            font-size: 1.6rem;
+        }
+
+        ol {
+            width: 80vw;
+            justify-items: start;
+        }
+    }
 </style>

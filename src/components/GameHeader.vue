@@ -47,4 +47,27 @@
             font-size: 1rem;
         }
     }
+
+    @media only screen and (min-width: 768px) and (max-width: 1366px) and (orientation: portrait) {
+
+        h1 {
+            font-size: 3.8rem;
+        }
+
+        p {
+            font-size: 2rem;
+        }
+    }
+
+    @media only screen and (min-width: 768px) and (max-width: 1366px) and (orientation: landscape) {
+
+        h1 {
+            font-size: 4.3rem;
+            margin-top: 3vh;
+        }
+
+        p {
+            font-size: 2rem;
+        }
+    }
 </style>
