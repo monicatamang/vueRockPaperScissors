@@ -1,6 +1,5 @@
 <template>
     <section>
-        <desktop-header id="desktopHeader"></desktop-header>
         <login-header></login-header>
         <main>
             <form action="javascript:void(0)">
@@ -17,7 +16,6 @@
 <script>
     import axios from "axios";
     import cookies from "vue-cookies";
-    import DesktopHeader from "../components/DesktopHeader.vue";
     import LoginHeader from "../components/LoginHeader.vue";
     import PageFooter from "../components/PageFooter.vue";
     
@@ -25,7 +23,6 @@
         name: "Login",
         
         components: {
-            DesktopHeader,
             LoginHeader,
             PageFooter
         },

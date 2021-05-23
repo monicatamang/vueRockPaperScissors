@@ -8,7 +8,7 @@
             </div>
 
             <div v-else>
-                <desktop-header id="desktopHeader"></desktop-header>
+                <desktop-game-header id="desktopGameHeader"></desktop-game-header>
                 <game-header></game-header>
                 <score-board></score-board>
                 <article id="gameArea">
@@ -31,7 +31,7 @@
 
 <script>
     import cookies from "vue-cookies";
-    import DesktopHeader from "../components/DesktopHeader.vue";
+    import DesktopGameHeader from "../components/DesktopGameHeader.vue";
     import HelpButton from "../components/HelpButton.vue";
     import GameHeader from "../components/GameHeader.vue";
     import UserSelection from "../components/UserSelection.vue";
@@ -44,7 +44,7 @@
         name: "Game",
 
         components: {
-            DesktopHeader,
+            DesktopGameHeader,
             GameHeader,
             HelpButton,
             UserSelection,
@@ -200,7 +200,7 @@
         box-shadow: none;
     }
 
-    #desktopHeader {
+    #desktopGameHeader {
         display: none;
     }
 
@@ -325,7 +325,7 @@
             display: none;
         }
 
-        #desktopHeader {
+        #desktopGameHeader {
             display: grid;
         }
 

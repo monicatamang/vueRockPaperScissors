@@ -10,7 +10,7 @@
     import LogoutButton from "./LogoutButton.vue";
 
     export default {
-        name: "desktop-header",
+        name: "desktop-game-header",
 
         components: {
             LogoutButton

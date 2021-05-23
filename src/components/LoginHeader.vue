@@ -6,7 +6,6 @@
             <img id="scissors" :src="optionImages[2].src" :alt="optionImages[2].alt">
         </div>
         <h1>Rock Paper Scissors</h1>
-        <h1 id="loginTitle">Login</h1>
         <p>Please use eve.holt@reqres.in as the email. The password can be anything you like.</p>
     </header>
 </template>
@@ -51,10 +50,6 @@
     img {
         width: 80%;
         transform: rotate(90deg);
-    }
-
-    #loginTitle {
-        display: none;
     }
 
     @media only screen and (min-width: 320px) and (max-width: 812px) and (orientation: landscape) {
@@ -131,11 +126,7 @@
     @media only screen and (min-width: 1024px) {
 
         header {
-            margin-top: 15vh;
-        }
-
-        #loginTitle {
-            display: grid;
+            margin-top: 10vh;
         }
 
         #imageContainer {
@@ -144,10 +135,6 @@
 
         img {
             width: 70%;
-        }
-
-        h1 {
-            display: none;
         }
     }
 </style>
